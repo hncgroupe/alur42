@@ -521,7 +521,7 @@ h1,h2,h3,h4{letter-spacing:-.3px}
   .h-visual img{height:220px!important}
   /* Titre : taille fluide */
   .h-title{font-size:clamp(26px,7.5vw,40px)}
-  .h-title br{display:none}
+  /* .h-title br: sauts de ligne conservés */
   /* Boutons hero : pleine largeur */
   .h-btns{flex-direction:column;gap:10px}
   .h-btns .btn{width:100%;justify-content:center}
