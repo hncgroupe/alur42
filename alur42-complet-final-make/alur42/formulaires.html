@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" type="image/png" href="https://assets.hncgroupe.fr/alur42/FAVICON_ALUR_42.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vérifier mon éligibilité - ALUR42</title>
+<meta name="description" content="Vérifiez votre éligibilité à la prise en charge OPCO pour votre formation ALUR 42h.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ═══ MINI FUNNEL - styles propres, n'écrase pas style.css ═══ */
+.funnel-wrap{max-width:520px;margin:0 auto;padding:36px 16px 80px}
+
+/* Gov bar */
+.gov-bar{background:#003189;height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.1)}
+.gov-bar-inner{max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px;width:100%}
+.tricolor{display:flex;height:24px;border-radius:3px;overflow:hidden;flex-shrink:0}
+.tricolor .b{width:8px;background:#002395}
+.tricolor .w{width:8px;background:#EEE}
+.tricolor .r{width:8px;background:#ED2939}
+.gov-lbl{color:rgba(255,255,255,.85);font-size:12px;font-weight:600}
+.gov-lbl strong{color:#fff}
+.gov-sep{flex:1}
+.gov-tls{display:flex;align-items:center;gap:5px;color:rgba(255,255,255,.6);font-size:11px;font-weight:500}
+
+/* Header portail */
+.p-head{text-align:center;margin-bottom:28px;padding-top:32px}
+.live-badge{display:inline-flex;align-items:center;gap:7px;background:#1B3A6B;color:#fff;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;animation:blink 1.6s infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.p-head h1{font-size:clamp(20px,5vw,28px);font-weight:800;color:#1B3A6B;letter-spacing:-.5px;line-height:1.2;margin-bottom:7px}
+.p-head h1 em{color:#2DB8A0;font-style:normal}
+.p-head p{color:#5a6b82;font-size:13.5px;line-height:1.65}
+
+/* Card */
+.f-card{background:#fff;border-radius:22px;box-shadow:0 8px 48px rgba(27,58,107,.1),0 1px 4px rgba(27,58,107,.06);overflow:visible}
+
+/* Progress */
+.prog-wrap{padding:22px 26px 0;background:linear-gradient(180deg,#F8FAFF,#fff)}
+.steps-row{display:flex;align-items:center;margin-bottom:10px}
+.st{flex:1;display:flex;flex-direction:column;align-items:center}
+.st-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;background:#dde6f0;color:#8fa0b5;transition:all .35s;position:relative;z-index:1}
+.st.done .st-dot{background:#2DB8A0;color:#fff}
+.st.active .st-dot{background:#1B3A6B;color:#fff;box-shadow:0 0 0 4px rgba(27,58,107,.12)}
+.st-lbl{font-size:9.5px;font-weight:700;color:#8fa0b5;margin-top:4px;transition:color .3s;text-align:center}
+.st.active .st-lbl{color:#1B3A6B}
+.st.done .st-lbl{color:#2DB8A0}
+.st-line{flex:1;height:2px;background:#dde6f0;margin-top:-14px;transition:background .35s}
+.st-line.done{background:#2DB8A0}
+.prog-pct{font-size:10.5px;font-weight:700;color:#2DB8A0;text-align:right;margin-bottom:6px}
+.prog-track{height:3px;background:#dde6f0;border-radius:2px;overflow:hidden;margin-bottom:22px}
+.prog-fill{height:100%;background:linear-gradient(90deg,#2DB8A0,#3EC6A0);border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+
+/* Steps */
+.fstep{padding:0 26px 26px;display:none}
+.fstep.active{display:block;animation:fup .3s ease}
+@keyframes fup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.back-btn{display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;color:#5a6b82;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;margin-bottom:14px;padding:0;transition:color .2s}
+.back-btn:hover{color:#1B3A6B}
+.s-ico{font-size:32px;margin-bottom:10px;text-align:center}
+.s-ttl{font-size:17px;font-weight:800;color:#1B3A6B;letter-spacing:-.3px;margin-bottom:3px}
+.s-sub{font-size:12.5px;color:#5a6b82;line-height:1.6;margin-bottom:18px}
+
+/* SIRET input */
+.siret-wrap{position:relative;margin-bottom:10px}
+.siret-wrap input{width:100%;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:13px 48px 13px 16px;border:2px solid #dde6f0;border-radius:12px;color:#1B3A6B;background:#F5F8FC;outline:none;transition:all .2s;letter-spacing:.3px}
+.siret-wrap input:focus{border-color:#2DB8A0;box-shadow:0 0 0 4px rgba(45,184,160,.1);background:#fff}
+.siret-wrap input.valid{border-color:#16A34A;background:#F0FDF4}
+.siret-ico{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:18px;opacity:0;transition:opacity .3s}
+.siret-ico.show{opacity:1}
+.siret-spin{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;border:2.5px solid #dde6f0;border-top-color:#2DB8A0;border-radius:50%;animation:fspin .65s linear infinite;display:none}
+.siret-spin.show{display:block}
+@keyframes fspin{to{transform:translateY(-50%) rotate(360deg)}}
+
+/* OPCO result card */
+.opco-result{display:none;background:linear-gradient(135deg,#F0FDFA,#EEF3F9);border:1.5px solid rgba(45,184,160,.3);border-radius:12px;padding:13px 15px;margin-bottom:16px;animation:fup .35s ease}
+.opco-result.show{display:block}
+.or-name{font-weight:800;font-size:14.5px;color:#1B3A6B;margin-bottom:2px}
+.or-meta{font-size:11px;color:#5a6b82;margin-bottom:10px}
+.opco-detected{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid rgba(45,184,160,.25);border-radius:10px;padding:9px 13px;box-shadow:0 2px 8px rgba(45,184,160,.1)}
+.opco-logo-wrap{width:56px;height:38px;border-radius:7px;background:#F1F5F9;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.opco-logo-wrap img{max-width:50px;max-height:34px;object-fit:contain}
+.opco-initial{font-size:10px;font-weight:900;color:#1B3A6B;letter-spacing:-.3px;text-align:center}
+.od-label{font-size:9.5px;font-weight:700;color:#8fa0b5;text-transform:uppercase;letter-spacing:.8px}
+.od-name{font-size:14px;font-weight:900;color:#2DB8A0;letter-spacing:-.3px}
+.od-who{font-size:10.5px;color:#5a6b82;margin-top:1px}
+.or-check{width:22px;height:22px;border-radius:50%;background:#2DB8A0;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-left:auto}
+
+/* Qty cards */
+.qty-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.qty-card{border:2px solid #dde6f0;border-radius:12px;padding:14px 10px;cursor:pointer;transition:all .2s;background:#F5F8FC;text-align:center}
+.qty-card:hover{border-color:#2DB8A0;background:#F0FDFA;transform:translateY(-2px)}
+.qty-card.sel{border-color:#2DB8A0;background:linear-gradient(135deg,#F0FDFA,#EEF3F9);box-shadow:0 0 0 3px rgba(45,184,160,.15)}
+.qc-num{font-size:20px;font-weight:900;color:#1B3A6B;letter-spacing:-1px;line-height:1}
+.qc-lbl{font-size:11px;color:#5a6b82;margin-top:3px}
+.qc-check{width:16px;height:16px;border-radius:50%;border:2px solid #dde6f0;margin:8px auto 0;transition:all .2s;display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent}
+.qty-card.sel .qc-check{background:#2DB8A0;border-color:#2DB8A0;color:#fff}
+
+/* Durée */
+.dur-row{display:flex;gap:8px;margin-bottom:16px}
+.dur-card{flex:1;border:2px solid #dde6f0;border-radius:12px;padding:14px 10px;cursor:pointer;transition:all .2s;background:#F5F8FC;text-align:center}
+.dur-card:hover{border-color:#2DB8A0}
+.dur-card.sel{border-color:#2DB8A0;background:linear-gradient(135deg,#F0FDFA,#EEF3F9);box-shadow:0 0 0 3px rgba(45,184,160,.15)}
+.dur-card .dh{font-size:22px;font-weight:900;color:#1B3A6B;letter-spacing:-1px}
+.dur-card .dp{font-size:11px;color:#5a6b82;margin-top:2px}
+.dur-card .dpr{font-size:11.5px;font-weight:700;color:#2DB8A0;margin-top:4px}
+.dur-card .qc-check{margin:8px auto 0}
+
+/* Fields */
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:11px}
+.f-solo{margin-bottom:11px}
+.ffield label{font-size:11.5px;font-weight:700;color:#1B3A6B;display:block;margin-bottom:4px}
+.ffield input{width:100%;font-family:'Inter',sans-serif;font-size:14px;padding:11px 13px;border:1.5px solid #dde6f0;border-radius:10px;color:#1B3A6B;background:#F5F8FC;outline:none;transition:all .2s}
+.ffield input:focus{border-color:#2DB8A0;box-shadow:0 0 0 3px rgba(45,184,160,.1);background:#fff}
+
+/* Info box */
+.ibox{background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #3B82F6;border-radius:8px;padding:9px 12px;margin-bottom:14px;font-size:11.5px;color:#1E40AF;line-height:1.6}
+
+/* CTA btn */
+.f-cta{width:100%;padding:14px;background:linear-gradient(135deg,#2DB8A0,#3EC6A0);color:#fff;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:800;border:none;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .25s;box-shadow:0 6px 18px rgba(45,184,160,.3);letter-spacing:-.1px}
+.f-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(45,184,160,.4)}
+.f-cta:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* Terminal verif */
+.verif-wrap{text-align:center;padding:28px 8px}
+.v-spin{width:60px;height:60px;border:4px solid #dde6f0;border-top-color:#2DB8A0;border-radius:50%;animation:fspin2 .75s linear infinite;margin:0 auto 18px}
+@keyframes fspin2{to{transform:rotate(360deg)}}
+.v-ttl{font-size:17px;font-weight:800;color:#1B3A6B;letter-spacing:-.3px;margin-bottom:4px}
+.v-sub{font-size:12.5px;color:#5a6b82;margin-bottom:14px}
+.v-term{background:#0d1f3c;border-radius:10px;padding:14px;font-family:'Courier New',monospace;font-size:10.5px;color:#4ADE80;text-align:left;min-height:88px}
+.v-line{opacity:0;animation:fadeln .3s ease forwards;margin-bottom:2px}
+@keyframes fadeln{to{opacity:1}}
+
+/* Succès */
+.succ-wrap{text-align:center;padding:32px 8px 8px}
+.succ-ico{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#2DB8A0,#3EC6A0);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;animation:fpop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes fpop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.succ-wrap h2{font-size:20px;font-weight:800;color:#1B3A6B;letter-spacing:-.3px;margin-bottom:7px}
+.succ-wrap p{color:#5a6b82;font-size:13px;line-height:1.7;margin-bottom:18px}
+.succ-box{background:linear-gradient(135deg,#F0FDFA,#EEF3F9);border:1.5px solid rgba(45,184,160,.25);border-radius:12px;padding:14px;text-align:left;margin-bottom:16px}
+.sb-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(45,184,160,.12);font-size:12.5px}
+.sb-row:last-child{border:none}
+.sb-lbl{color:#5a6b82;font-weight:600;font-size:11px}
+.sb-val{color:#1B3A6B;font-weight:800;font-size:12.5px}
+.ref-badge{font-family:'Courier New',monospace;background:#1B3A6B;color:#4ADE80;padding:2px 8px;border-radius:5px;font-size:11px}
+
+/* Trust */
+.trust-row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;padding:13px 20px;border-top:1px solid #F1F5F9;background:#F5F8FC}
+.trust-item{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:#5a6b82}
+
+/* Réassurance */
+.reass{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.rp{display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #dde6f0;border-radius:20px;padding:4px 11px;font-size:10.5px;font-weight:600;color:#5a6b82}
+
+@media(max-width:480px){
+  .f-row{grid-template-columns:1fr}
+  .funnel-wrap{padding:16px 12px 60px}
+  .fstep{padding:0 18px 22px}
+  .prog-wrap{padding:18px 18px 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-c">
+    <a href="index.html" class="nav-brand"><img src="https://assets.hncgroupe.fr/alur42/logo-alur42.png" class="nav-logo" alt="Alur 42"></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="index.html#formations" class="nav-link">Formations</a>
+      <a href="index.html#financement" class="nav-link">Financement</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <a href="formulaires.html" class="nav-cta">Vérifier mon éligibilité →</a>
+    <button class="nav-burger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="nav-mob">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#formations">Formations</a>
+    <a href="index.html#financement">Financement</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="formulaires.html" class="nav-cta" style="display:block;text-align:center;margin-top:8px">Vérifier mon éligibilité →</a>
+  </div>
+</nav>
+
+<!-- GOV BAR -->
+<div class="gov-bar">
+  <div class="gov-bar-inner">
+    <div class="tricolor"><span class="b"></span><span class="w"></span><span class="r"></span></div>
+    <div class="gov-lbl"><strong>ALUR42.fr</strong> - Portail de vérification d'éligibilité</div>
+    <div class="gov-sep"></div>
+    <div class="gov-tls">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Connexion sécurisée TLS
+    </div>
+  </div>
+</div>
+
+<div class="funnel-wrap">
+
+  <div class="p-head">
+    <div class="live-badge"><span class="live-dot"></span>Portail actif - Vérification temps réel</div>
+    <h1>Vérifiez votre éligibilité à la<br><em>prise en charge OPCO</em></h1>
+    <p>3 étapes, moins de 2 minutes. Traitement automatique sous 48h.</p>
+  </div>
+
+  <div class="f-card">
+
+    <!-- PROGRESS -->
+    <div class="prog-wrap">
+      <div class="steps-row">
+        <div class="st active" id="ps1"><div class="st-dot">1</div><div class="st-lbl">Entreprise</div></div>
+        <div class="st-line" id="pl1"></div>
+        <div class="st" id="ps2"><div class="st-dot">2</div><div class="st-lbl">Formation</div></div>
+        <div class="st-line" id="pl2"></div>
+        <div class="st" id="ps3"><div class="st-dot">3</div><div class="st-lbl">Éligibilité</div></div>
+        <div class="st-line" id="pl3"></div>
+        <div class="st" id="ps4"><div class="st-dot">4</div><div class="st-lbl">Contact</div></div>
+      </div>
+      <div class="prog-pct" id="pct">25%</div>
+      <div class="prog-track"><div class="prog-fill" id="pfill" style="width:25%"></div></div>
+    </div>
+
+    <!-- STEP 1 : SIRET -->
+    <div class="fstep active" id="fstep1">
+      <div class="s-ico">🏢</div>
+      <div class="s-ttl">Identifiez votre entreprise</div>
+      <div class="s-sub">SIRET ou nom d'entreprise - votre OPCO est détecté automatiquement.</div>
+      <div class="siret-wrap">
+        <input type="text" id="siretIn" placeholder="SIRET ou nom d'entreprise..." autocomplete="off" oninput="window.onIn(this.value)">
+        <div class="siret-spin" id="fspin"></div>
+        <div class="siret-ico" id="fsico"></div>
+      </div>
+      <div class="opco-result" id="opcoRes" style="display:none!important">
+        <div class="or-name" id="orNm"></div>
+        <div class="or-meta" id="orMt"></div>
+        <div class="opco-detected">
+          <div class="opco-logo-wrap" id="opcoLogo"></div>
+          <div>
+            <div class="od-label">OPCO détecté</div>
+            <div class="od-name" id="odNm"></div>
+            <div class="od-who" id="odWho"></div>
+          </div>
+          <div class="or-check">✓</div>
+        </div>
+      </div>
+      <div id="entCard" style="display:none;background:linear-gradient(135deg,#F0FDFA,#EFF6FF);border:1.5px solid rgba(45,184,160,.4);border-radius:14px;padding:14px 16px;margin-bottom:12px;animation:fup .3s ease">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <div style="display:flex;align-items:center;gap:7px">
+            <div style="width:8px;height:8px;border-radius:50%;background:#2DB8A0;flex-shrink:0"></div>
+            <div style="font-size:10px;font-weight:800;color:#2DB8A0;text-transform:uppercase;letter-spacing:1px">Entreprise identifiée</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1.5px solid rgba(45,184,160,.3);border-radius:8px;padding:4px 10px">
+            <div id="ecOpcoLogo" style="width:36px;height:24px;display:flex;align-items:center;justify-content:center"></div>
+            <div style="font-size:11px;font-weight:800;color:#2DB8A0" id="ecOpco">-</div>
+          </div>
+        </div>
+        <div style="font-weight:800;font-size:15px;color:#1B3A6B;margin-bottom:8px" id="ecNom">-</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-bottom:8px">
+          <div>
+            <div style="font-size:9.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">SIRET</div>
+            <div style="font-size:12px;font-weight:700;color:#1B3A6B" id="ecSiret">-</div>
+          </div>
+          <div>
+            <div style="font-size:9.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Code NAF</div>
+            <div style="font-size:12px;font-weight:700;color:#1B3A6B" id="ecNaf">-</div>
+          </div>
+        </div>
+        <div style="padding-top:8px;border-top:1px solid rgba(45,184,160,.2)">
+          <div style="font-size:9.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Adresse</div>
+          <div style="font-size:12px;color:#475569;font-weight:600;line-height:1.5" id="ecAddr">-</div>
+        </div>
+      </div>
+      <button class="f-cta" id="btn1" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Continuer
+      </button>
+    </div>
+
+    <!-- STEP 2 : FORMATION -->
+    <div class="fstep" id="fstep2">
+      <button class="back-btn" onclick="go(1)">← Retour</button>
+      <div class="s-ico">🎓</div>
+      <div class="s-ttl">Votre besoin en formation</div>
+      <div class="s-sub">Choisissez la durée et le nombre de formations souhaitées.</div>
+
+      <div style="font-size:11.5px;font-weight:700;color:#1B3A6B;margin-bottom:8px">Durée de formation</div>
+      <div class="dur-row">
+        <div class="dur-card sel" id="d42" onclick="selDur('42')">
+          <div class="dh">42h</div>
+          <div class="dp">Renouvellement carte pro</div>
+          <div class="dpr">299€ remboursé OPCO</div>
+          <div class="qc-check" style="margin:8px auto 0">✓</div>
+        </div>
+        <div class="dur-card" id="d14" onclick="selDur('14')">
+          <div class="dh">14h</div>
+          <div class="dp">Mise à jour annuelle</div>
+          <div class="dpr">149€ remboursé OPCO</div>
+          <div class="qc-check" style="margin:8px auto 0">✓</div>
+        </div>
+      </div>
+
+      <div style="font-size:11.5px;font-weight:700;color:#1B3A6B;margin-bottom:12px">Nombre de formations souhaitées</div>
+      <div id="qtyBtns" style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:8px">
+        <div class="qbtn" data-v="1" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">1</div>
+        <div class="qbtn" data-v="2" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">2</div>
+        <div class="qbtn" data-v="3" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">3</div>
+        <div class="qbtn" data-v="4" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">4</div>
+        <div class="qbtn" data-v="5" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">5</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:8px">
+        <div class="qbtn" data-v="6" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">6</div>
+        <div class="qbtn" data-v="7" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">7</div>
+        <div class="qbtn" data-v="8" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">8</div>
+        <div class="qbtn" data-v="9" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">9</div>
+        <div class="qbtn" data-v="10" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:800;color:#1B3A6B;text-align:center;transition:all .2s">10+</div>
+      </div>
+
+      <!-- Salariés -->
+      <div style="margin-bottom:16px">
+        <div style="font-size:11.5px;font-weight:700;color:#1B3A6B;margin-bottom:10px">Avez-vous des salariés ?</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+          <div id="sal-oui" class="sbtn" data-v="oui" style="padding:14px 10px;border:2px solid #dde6f0;border-radius:12px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:700;color:#1B3A6B;text-align:center;transition:all .2s">👥 Oui</div>
+          <div id="sal-non" class="sbtn" data-v="non" style="padding:14px 10px;border:2px solid #dde6f0;border-radius:12px;cursor:pointer;background:#F5F8FC;font-size:15px;font-weight:700;color:#1B3A6B;text-align:center;transition:all .2s">🙋 Non</div>
+        </div>
+        <div id="effectif-wrap" style="display:none;animation:fup .3s ease">
+          <div style="font-size:11.5px;font-weight:700;color:#1B3A6B;margin-bottom:8px">Effectif de l'entreprise</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px">
+            <div class="ebtn" data-v="1 salarié" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;text-align:center;transition:all .2s"><div style="font-size:18px;font-weight:800;color:#1B3A6B">1</div><div style="font-size:11px;color:#64748b">salarié</div></div>
+            <div class="ebtn" data-v="2 à 10" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;text-align:center;transition:all .2s"><div style="font-size:18px;font-weight:800;color:#1B3A6B">2-10</div><div style="font-size:11px;color:#64748b">salariés</div></div>
+            <div class="ebtn" data-v="11 à 99" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;text-align:center;transition:all .2s"><div style="font-size:18px;font-weight:800;color:#1B3A6B">11-99</div><div style="font-size:11px;color:#64748b">salariés</div></div>
+            <div class="ebtn" data-v="100+" style="padding:12px 6px;border:2px solid #dde6f0;border-radius:10px;cursor:pointer;background:#F5F8FC;text-align:center;transition:all .2s"><div style="font-size:18px;font-weight:800;color:#1B3A6B">100+</div><div style="font-size:11px;color:#64748b">salariés</div></div>
+          </div>
+        </div>
+      </div>
+      <button class="f-cta" id="btn2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Valider ma sélection
+      </button>
+    </div>
+
+    <!-- STEP 3 : VERIF -->
+    <div class="fstep" id="fstep3">
+      <div class="verif-wrap">
+        <div class="v-spin" id="vSpin"></div>
+        <div class="v-ttl" id="vTtl">Vérification en cours...</div>
+        <div class="v-sub" id="vSub">Connexion aux registres OPCO</div>
+        <div class="v-term" id="vTerm"></div>
+      </div>
+    </div>
+
+    <!-- STEP 4 : CONTACT -->
+    <div class="fstep" id="fstep4">
+      <button class="back-btn" onclick="go(3)">← Retour</button>
+      <div style="background:linear-gradient(135deg,#F0FDFA,#ECFDF5);border:1.5px solid #2DB8A0;border-radius:14px;padding:14px 16px;margin-bottom:18px;display:flex;align-items:flex-start;gap:11px">
+        <div style="width:28px;height:28px;border-radius:50%;background:#2DB8A0;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div>
+          <div style="font-weight:800;font-size:13.5px;color:#1B3A6B;margin-bottom:3px">Éligibilité confirmée !</div>
+          <div style="font-size:12.5px;color:#475569;line-height:1.6">Votre formation ALUR 42h est prise en charge à <strong style="color:#2DB8A0">100% par votre OPCO</strong>. Complétez vos coordonnées pour recevoir votre dossier.</div>
+        </div>
+      </div>
+      <div class="s-ico">👤</div>
+      <div class="s-ttl">Vos coordonnées</div>
+      <div class="s-sub">Pour recevoir votre lien de dossier sous 48h.</div>
+      <div class="f-solo ffield" style="margin-bottom:14px">
+        <label>Civilité *</label>
+        <div style="display:flex;gap:10px;margin-top:6px">
+          <div id="civM" class="civbtn" data-v="M" style="flex:1;padding:10px;border:2px solid #dde6f0;border-radius:10px;text-align:center;cursor:pointer;font-weight:700;font-size:13.5px;color:#64748b;transition:all .2s">Monsieur</div>
+          <div id="civF" class="civbtn" data-v="F" style="flex:1;padding:10px;border:2px solid #dde6f0;border-radius:10px;text-align:center;cursor:pointer;font-weight:700;font-size:13.5px;color:#64748b;transition:all .2s">Madame</div>
+        </div>
+        <input type="hidden" id="fCivil" value="">
+      </div>
+      <div class="f-row">
+        <div class="ffield"><label>Prénom *</label><input type="text" id="fPrenom" placeholder="Jean"></div>
+        <div class="ffield"><label>Nom *</label><input type="text" id="fNom" placeholder="Dupont"></div>
+      </div>
+      <div class="f-solo ffield"><label>Email professionnel *</label><input type="email" id="fEmail" placeholder="jean@agence.fr"></div>
+      <div class="f-solo ffield"><label>Téléphone *</label><input type="tel" id="fTel" placeholder="06 12 34 56 78"></div>
+
+      <div id="consentWrap" style="margin-top:10px;margin-bottom:14px;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:#F8FAFF;border:1.5px solid #dde6f0;border-radius:10px;cursor:pointer">
+        <div id="consentBox" style="width:18px;height:18px;border-radius:5px;border:2px solid #dde6f0;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s;background:#fff"></div>
+        <div style="font-size:12px;color:#475569;line-height:1.6">
+          J'autorise <strong>ALUR42</strong> à utiliser mes informations pour traiter ma demande de formation et me recontacter dans ce cadre.
+        </div>
+      </div>
+      <button class="f-cta" id="btn3">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Soumettre ma demande
+      </button>
+    </div>
+
+    <!-- STEP 5 : SUCCÈS -->
+    <div class="fstep" id="fstep5">
+      <div class="succ-wrap">
+        <div class="succ-ico">✓</div>
+        <h2>Dépôt de dossier confirmé !</h2>
+
+        <div class="succ-box">
+          <div class="sb-row"><span class="sb-lbl">Entreprise</span><span class="sb-val" id="sEnt">-</span></div>
+          <div class="sb-row"><span class="sb-lbl">OPCO détecté</span><span class="sb-val" id="sOpco">-</span></div>
+          <div class="sb-row"><span class="sb-lbl">Adresse</span><span class="sb-val" id="sAdresse" style="font-size:11px;text-align:right;max-width:60%;word-break:break-word;white-space:normal;line-height:1.5">-</span></div>
+          <div class="sb-row"><span class="sb-lbl">Formation</span><span class="sb-val" id="sDur">-</span></div>
+          <div class="sb-row"><span class="sb-lbl">Nb formations</span><span class="sb-val" id="sQty">-</span></div>
+          <div class="sb-row"><span class="sb-lbl">Référence</span><span class="sb-val"><span class="ref-badge" id="sRef">-</span></span></div>
+        </div>
+        <div class="ibox" style="text-align:left">📧 Votre numéro de dossier ALUR42 a été envoyé par mail à <strong id="sEmail">-</strong>.<br>Notre équipe vous recontacte dans les plus brefs délais.</div>
+      </div>
+    </div>
+
+    <!-- TRUST -->
+    <div class="trust-row">
+      <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>TLS chiffré</div>
+      <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Réponse 48h</div>
+      <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Certifié Qualiopi</div>
+      <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>RGPD</div>
+    </div>
+  </div>
+
+  <div class="reass">
+    <div class="rp"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Qualiopi certifié</div>
+    <div class="rp"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>100% sécurisé</div>
+    <div class="rp"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Accord sous 48h</div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-brand">
+      <img src="https://assets.hncgroupe.fr/alur42/logo-alur42.png" class="f-logo" alt="Alur 42">
+      <p>Formation ALUR 42h certifiée Qualiopi. Remboursée par votre OPCO. Attestation officielle pour le renouvellement de votre carte professionnelle.</p>
+      <img src="https://assets.hncgroupe.fr/alur42/LogoQualiopi-300dpi-Avec-Marianne.png" alt="Qualiopi" class="f-quali">
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Navigation</div>
+      <a href="index.html">Accueil</a>
+      <a href="index.html#formations">Formations</a>
+      <a href="index.html#financement">Financement</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Espace client</div>
+      <a href="formulaires.html">Vérifier mon éligibilité</a>
+      <a href="dossier-opco.html">Formulaire de prise en charge</a>
+      <a href="blog.html">Blog</a>
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Contact &amp; Légal</div>
+      <a href="mailto:contact@alur42.fr">contact@alur42.fr</a>
+      <a href="contact.html">Contact</a>
+      <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,.3);line-height:1.9">
+        <p>Certifié Qualiopi</p>
+        <p>Médiateur : AME CONSO</p>
+        <p>197 Bd Saint-Germain - 75007 Paris</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot"><div class="footer-bot-in">
+    <span>© 2026 ALUR42.fr - Tous droits réservés</span>
+    <span>Organisme certifié Qualiopi</span>
+  </div></div>
+</footer>
+<script src="main.js"></script>
+<script>
+// Tout dans un scope isolé pour éviter les conflits avec main.js
+(function() {
+
+const OPCOS = {
+  'OPCO EP':  { who:'Agents immobiliers salariés',           logo:'https://cdn.shopify.com/s/files/1/0987/0472/0217/files/6.png?v=1766238102', color:'#003189' },
+  'AGEFICE':  { who:"Chefs d'entreprise indépendants",       logo:'https://cdn.shopify.com/s/files/1/0987/0472/0217/files/1.png?v=1766021522', color:'#1D4ED8' },
+  'FIFPL':    { who:'Mandataires & professions libérales',   logo:'https://cdn.shopify.com/s/files/1/0987/0472/0217/files/3.png?v=1766021522', color:'#B45309' },
+  'ATLAS':    { who:'Banque, assurance & finance',           logo:'', color:'#1E40AF' },
+  'FAFCEA':   { who:'Artisans',                              logo:'', color:'#7C3AED' },
+};
+const NAF = {
+  '6831Z':'OPCO EP','6832A':'OPCO EP','6832B':'OPCO EP','6820A':'OPCO EP','6820B':'OPCO EP',
+  '6619B':'FIFPL','7112B':'FIFPL','6910Z':'FIFPL','6920Z':'FIFPL',
+  '6411Z':'ATLAS','6419Z':'ATLAS','6512Z':'ATLAS','6622Z':'ATLAS',
+  '4321A':'FAFCEA','4322A':'FAFCEA',
+};
+const LOGS = [
+  '> Connexion portail OPCO...................OK',
+  '> Vérification numéro SIRET................OK',
+  '> Contrôle éligibilité Qualiopi............OK',
+  '> Calcul montant prise en charge...........OK',
+  '> Consultation registre formation..........OK',
+  '> Génération référence dossier.............OK',
+];
+
+const FS = { step:1, siret:'', nom:'', opco:'OPCO EP', adresse:'', duree:'42', qty:'', salaries:'', effectif:'', prenom:'', nomP:'', email:'', tel:'', civil:'' };
+let fTimer=null, fAbort=null;
+
+// ── NAVIGATION ───────────────────────────────────────────────────────────────
+function go(n) {
+  document.querySelectorAll('.fstep').forEach(s => s.classList.remove('active'));
+  const step = document.getElementById('fstep'+n);
+  step.classList.add('active');
+  FS.step = n;
+  updProg(n);
+  if (n === 3) runVerif();
+  // Scroll : toujours juste au-dessus de la barre de progression (f-prog)
+  // pour que le client voie les steps + tout le contenu du step actif
+  setTimeout(() => {
+    const progBar = document.querySelector('.steps-row') || document.querySelector('.prog-pct') || step;
+    const top = progBar.getBoundingClientRect().top + window.pageYOffset - 8;
+    window.scrollTo({top: top, behavior: 'smooth'});
+  }, 60);
+}
+
+function updProg(n) {
+  const p = {1:25, 2:50, 3:75, 4:90, 5:100};
+  document.getElementById('pfill').style.width = p[n] + '%';
+  document.getElementById('pct').textContent = p[n] + '%';
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById('ps'+i);
+    el.classList.remove('active','done');
+    if (i < n || (n === 5 && i === 4)) el.classList.add('done');
+    else if (i === n) el.classList.add('active');
+    if (i < 4) document.getElementById('pl'+i).classList.toggle('done', i < n);
+  }
+}
+
+// ── AUTOCOMPLETE DROPDOWN ────────────────────────────────────────────────────
+function createDropdown() {
+  let dd = document.getElementById('acDropdown');
+  if (!dd) {
+    dd = document.createElement('div');
+    dd.id = 'acDropdown';
+    dd.style.cssText = `
+      position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:9999;
+      background:#fff;border:2px solid #2DB8A0;border-radius:12px;
+      box-shadow:0 8px 24px rgba(13,43,94,.15);overflow:hidden;
+      max-height:220px;overflow-y:auto;
+    `;
+    document.querySelector('.siret-wrap').appendChild(dd);
+  }
+  return dd;
+}
+
+function hideDropdown() {
+  const dd = document.getElementById('acDropdown');
+  if (dd) dd.style.display = 'none';
+}
+
+function showDropdown(results) {
+  const dd = createDropdown();
+  if (!results.length) { dd.style.display = 'none'; return; }
+  dd.innerHTML = '';
+  results.forEach(item => {
+    const nom = item.nom_complet || item.nom_raison_sociale || '';
+    const siret = item.siege?.siret || item.siren || '';
+    const ville = item.siege?.libelle_commune || '';
+    const naf = (item.activite_principale || '').replace('.','').trim();
+    const opco = NAF[naf] || 'OPCO EP';
+
+    const cp = item.siege?.code_postal || '';
+    const adresse = item.siege?.adresse || item.siege?.libelle_voie || '';
+    const adresseFull = [adresse, cp, ville].filter(Boolean).join(', ');
+
+    const row = document.createElement('div');
+    row.style.cssText = `
+      padding:11px 14px;cursor:pointer;border-bottom:1px solid #f1f5f9;
+      transition:background .15s;display:flex;flex-direction:column;gap:4px;
+    `;
+    row.innerHTML = `
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+        <div style="font-weight:800;font-size:13.5px;color:#1B3A6B;line-height:1.3">${nom}</div>
+
+      </div>
+      <div style="font-size:11.5px;color:#475569;font-weight:600">
+        SIRET : ${siret || '-'}
+      </div>
+      <div style="font-size:11.5px;color:#475569;display:flex;align-items:center;gap:5px">
+        📍 <span>${adresseFull || ville || '-'}</span>
+      </div>
+    `;
+    row.addEventListener('mouseenter', () => row.style.background = '#F0FDFA');
+    row.addEventListener('mouseleave', () => row.style.background = '');
+    row.addEventListener('mousedown', e => { e.preventDefault(); _ddMouseDown = true; });
+    row.addEventListener('mouseup', e => {
+      e.preventDefault(); _ddMouseDown = false;
+      document.getElementById('siretIn').value = nom;
+      hideDropdown(); showRes(item);
+    });
+    row.addEventListener('touchend', e => {
+      e.preventDefault();
+      document.getElementById('siretIn').value = nom;
+      hideDropdown(); showRes(item);
+    });
+    dd.appendChild(row);
+  });
+  dd.style.display = 'block';
+}
+
+// ── INPUT HANDLER ────────────────────────────────────────────────────────────
+function onIn(v) {
+  hideDropdown();
+  document.getElementById('opcoRes').classList.remove('show');
+  document.getElementById('fsico').className = 'siret-ico';
+  document.getElementById('siretIn').classList.remove('valid');
+  document.getElementById('entCard').style.display = 'none';
+
+  if (v.trim().length < 2) {
+    // Moins de 2 caractères : bouton désactivé
+    document.getElementById('btn1').disabled = true;
+    return;
+  }
+
+  // Dès 2 caractères : autoriser de continuer avec la valeur saisie
+  FS.nom = v.trim();
+  FS.siret = '';
+  FS.opco = 'OPCO EP';
+  FS.adresse = '';
+  document.getElementById('btn1').disabled = false;
+
+  clearTimeout(fTimer);
+  document.getElementById('fspin').classList.add('show');
+  fTimer = setTimeout(() => fetchEnt(v.trim(), v.replace(/\D/g,'')), 400);
+}
+
+// ── API FETCH ────────────────────────────────────────────────────────────────
+async function fetchEnt(q, clean) {
+  if (fAbort) fAbort.abort();
+  fAbort = new AbortController();
+  try {
+    const url = clean.length >= 9
+      ? `https://recherche-entreprises.api.gouv.fr/search?q=${clean}&limite=5`
+      : `https://recherche-entreprises.api.gouv.fr/search?q=${encodeURIComponent(q)}&limite=5`;
+
+    const r = await fetch(url, { signal: fAbort.signal });
+    if (!r.ok) throw new Error('API error');
+    const d = await r.json();
+    document.getElementById('fspin').classList.remove('show');
+
+    if (d.results && d.results.length > 0) {
+      // Auto-sélectionner si SIRET exact
+      if (clean.length >= 14) {
+        showRes(d.results[0]);
+      } else {
+        showDropdown(d.results);
+        // Pré-sélectionner le premier silencieusement
+        const first = d.results[0];
+        FS.nom = first.nom_complet || first.nom_raison_sociale || q;
+        const naf = (first.activite_principale || '').replace('.','').trim();
+        FS.siret = first.siege?.siret || first.siren || '';
+        FS.opco = NAF[naf] || 'OPCO EP';
+      }
+    } else {
+      document.getElementById('fspin').classList.remove('show');
+      // Aucun résultat : on laisse le bouton actif avec ce qu'a tapé l'utilisateur
+    }
+  } catch(e) {
+    document.getElementById('fspin').classList.remove('show');
+    if (e.name === 'AbortError') return;
+    // En cas d'erreur réseau : bouton reste actif avec la saisie manuelle
+  }
+}
+
+// ── AFFICHAGE RÉSULTAT ───────────────────────────────────────────────────────
+function showRes(item) {
+  const nom   = item.nom_complet || item.nom_raison_sociale || '';
+  const siret = item.siege?.siret || item.siren || '';
+  const naf   = (item.activite_principale || '').replace('.','').trim();
+  const ville = item.siege?.libelle_commune || '';
+  const opco  = NAF[naf] || 'OPCO EP';
+  const addr  = [item.siege?.adresse||'', item.siege?.code_postal||'', ville].filter(Boolean).join(', ');
+  FS.siret = siret; FS.nom = nom; FS.opco = opco; FS.adresse = addr;
+  document.getElementById('ecNom').textContent   = nom;
+  document.getElementById('ecSiret').textContent = siret || '-';
+  document.getElementById('ecNaf').textContent   = naf   || '-';
+  document.getElementById('ecAddr').textContent  = addr  || '-';
+  document.getElementById('ecOpco').textContent  = opco;
+  const logoUrl = OPCOS[opco]?.logo || '';
+  const lw = document.getElementById('ecOpcoLogo');
+  lw.innerHTML = logoUrl ? `<img src="${logoUrl}" style="max-width:34px;max-height:22px;object-fit:contain">` : '';
+  document.getElementById('entCard').style.display = 'block';
+  document.getElementById('siretIn').classList.add('valid');
+  document.getElementById('siretIn').value = nom;
+  document.getElementById('fsico').textContent = '✅';
+  document.getElementById('fsico').className = 'siret-ico show';
+  document.getElementById('btn1').disabled = false;
+  hideDropdown();
+}
+
+// ── DURÉE ────────────────────────────────────────────────────────────────────
+function selDur(d) {
+  FS.duree = d;
+  document.getElementById('d42').classList.toggle('sel', d === '42');
+  document.getElementById('d14').classList.toggle('sel', d === '14');
+  document.querySelectorAll('.dur-card .qc-check').forEach(c => {
+    c.style.background = ''; c.style.borderColor = ''; c.style.color = 'transparent';
+  });
+  const sel = document.getElementById('d' + d).querySelector('.qc-check');
+  sel.style.background = '#2DB8A0'; sel.style.borderColor = '#2DB8A0'; sel.style.color = '#fff';
+}
+
+// ── QTÉ ──────────────────────────────────────────────────────────────────────
+function selectQty(el, v) {
+  FS.qty = v;
+  document.querySelectorAll('[onclick^="selectQty"]').forEach(function(b) {
+    b.style.borderColor = '#dde6f0';
+    b.style.background = '#F5F8FC';
+    b.style.color = '#1B3A6B';
+  });
+  el.style.borderColor = '#2DB8A0';
+  el.style.background = '#F0FDFA';
+  el.style.color = '#2DB8A0';
+  checkStep2();
+}
+
+// ── CHECK STEP 2 ─────────────────────────────────────────────────────────────
+function checkStep2() {
+  const salOk = FS.salaries !== '';
+  const effOk = FS.salaries === 'non' || (FS.salaries === 'oui' && FS.effectif !== '');
+  const qtyOk = FS.qty !== '' && parseInt(FS.qty) > 0;
+  document.getElementById('btn2').disabled = !(salOk && effOk && qtyOk);
+}
+
+// ── SUBMIT ───────────────────────────────────────────────────────────────────
+function fsSubmit() {
+  var p = document.getElementById('fPrenom').value.trim();
+  var n = document.getElementById('fNom').value.trim();
+  var e = document.getElementById('fEmail').value.trim();
+  var t = document.getElementById('fTel').value.trim();
+  var box = document.getElementById('consentBox');
+  var wrap = document.getElementById('consentWrap');
+
+  if (!box || box.dataset.checked !== '1') {
+    if (wrap) {
+      wrap.style.borderColor = '#EF4444';
+      wrap.style.background = '#FEF2F2';
+      setTimeout(function() { wrap.style.borderColor = '#dde6f0'; wrap.style.background = '#F8FAFF'; }, 2000);
+    }
+    return;
+  }
+  if (!p || !n || !e || !t) {
+    var btn = document.getElementById('btn3');
+    var orig = btn.innerHTML;
+    btn.style.background = 'linear-gradient(135deg,#EF4444,#F97316)';
+    btn.textContent = '⚠ Remplissez tous les champs';
+    setTimeout(function() { btn.style.background = ''; btn.innerHTML = orig; }, 2200);
+    return;
+  }
+  FS.prenom = p; FS.nomP = n; FS.email = e; FS.tel = t;
+  fillSucc(); go(5);
+}
+
+// ── VÉRIF ANIMÉE ─────────────────────────────────────────────────────────────
+function runVerif() {
+  const term = document.getElementById('vTerm'); term.innerHTML = '';
+  const subs = ['Connexion registres OPCO','Vérification SIRET','Contrôle éligibilité','Calcul prise en charge','Finalisation dossier','Dossier validé !'];
+  let i = 0;
+  const iv = setInterval(() => {
+    if (i < LOGS.length) {
+      const l = document.createElement('div');
+      l.className = 'v-line'; l.style.animationDelay = '0s'; l.textContent = LOGS[i];
+      term.appendChild(l); term.scrollTop = term.scrollHeight;
+      document.getElementById('vSub').textContent = subs[i] || '';
+      i++;
+    } else {
+      clearInterval(iv);
+      const sp = document.getElementById('vSpin');
+      sp.style.borderColor = '#4ADE80'; sp.style.borderTopColor = '#16A34A';
+      document.getElementById('vTtl').textContent = '✅ Dossier validé';
+      setTimeout(() => { go(4); }, 800);
+    }
+  }, 430);
+}
+
+function selectCivil(v) {
+  FS.civil = v === 'M' ? 'Monsieur' : 'Madame';
+  document.getElementById('fCivil').value = FS.civil;
+  var m = document.getElementById('civM');
+  var f = document.getElementById('civF');
+  if (v === 'M') {
+    m.style.borderColor = '#2DB8A0'; m.style.color = '#1B3A6B'; m.style.background = '#F0FDFA';
+    f.style.borderColor = '#dde6f0'; f.style.color = '#64748b'; f.style.background = '#fff';
+  } else {
+    f.style.borderColor = '#2DB8A0'; f.style.color = '#1B3A6B'; f.style.background = '#F0FDFA';
+    m.style.borderColor = '#dde6f0'; m.style.color = '#64748b'; m.style.background = '#fff';
+  }
+}
+
+function fillSucc() {
+  // Génère ALURXXXX (4 chiffres uniques)
+  const ref = 'ALUR' + String(Math.floor(1000 + Math.random() * 9000));
+  // Stocker en sessionStorage pour que les formulaires OPCO le récupèrent
+  try { sessionStorage.setItem('alur_ref', ref); } catch(e) {}
+
+  // ── ENVOI MAKE.COM WEBHOOK ────────────────────────────────
+  const payload = {
+    source: 'alur42',
+    marque: 'Alur42.fr',
+    valeur_formation: FS.duree === '42' ? 299 : 149,
+    ca_potentiel: (FS.duree === '42' ? 299 : 149) * (parseInt(FS.qty) || 1),
+    type: 'prospect',
+    reference: ref,
+    date: new Date().toLocaleDateString('fr-FR'),
+    heure: new Date().toLocaleTimeString('fr-FR'),
+    civil: FS.civil || '',
+    salarie: FS.salaries || '',
+    nb_salaries: FS.effectif || '',
+    prenom: FS.prenom || '',
+    nom: FS.nomP || '',
+    email: FS.email || '',
+    tel: FS.tel || '',
+    entreprise: FS.nom || document.getElementById('siretIn').value || '',
+    siret: FS.siret || '',
+    adresse: FS.adresse || '',
+    opco: FS.opco || '',
+    formation_duree: FS.duree ? FS.duree + 'h' : '',
+    formation_qty: FS.qty || '',
+    statut_emploi: FS.emploi || ''
+  };
+  fetch('https://hook.eu1.make.com/qweau8bdsv8g148g10l66qvu1988465c', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  }).catch(function(e){ console.warn('Make webhook error:', e); });
+  // ─────────────────────────────────────────────────────────
+  const _nomS = FS.nom || document.getElementById('siretIn').value;
+  document.getElementById('sEnt').textContent     = _nomS;
+  document.getElementById('sOpco').textContent    = FS.opco;
+  document.getElementById('sAdresse').textContent = FS.adresse || '-';
+  if (document.getElementById('sEntNom'))   document.getElementById('sEntNom').textContent   = _nomS;
+  if (document.getElementById('sEntSiret')) document.getElementById('sEntSiret').textContent = FS.siret || '-';
+  if (document.getElementById('sEntAddr'))  document.getElementById('sEntAddr').textContent  = FS.adresse || '-';
+  document.getElementById('sDur').textContent = FS.duree + 'h - Certifié Qualiopi';
+  document.getElementById('sQty').textContent = FS.qty + ' formation' + (FS.qty === '1' ? '' : 's');
+  document.getElementById('sRef').textContent = ref;
+  document.getElementById('sEmail').textContent = FS.email;
+}
+
+// ── EVENTS ───────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  // Qty buttons
+  document.querySelectorAll('.qbtn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      FS.qty = this.dataset.v;
+      document.querySelectorAll('.qbtn').forEach(function(b) {
+        b.style.borderColor = '#dde6f0';
+        b.style.background = '#F5F8FC';
+        b.style.color = '#1B3A6B';
+      });
+      this.style.borderColor = '#2DB8A0';
+      this.style.background = '#F0FDFA';
+      this.style.color = '#2DB8A0';
+      checkStep2();
+    });
+  });
+
+  // Civilité buttons (step 4)
+  document.querySelectorAll('.civbtn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      FS.civil = this.dataset.v === 'M' ? 'Monsieur' : 'Madame';
+      document.getElementById('fCivil').value = FS.civil;
+      document.querySelectorAll('.civbtn').forEach(function(b) {
+        b.style.borderColor = '#dde6f0'; b.style.color = '#64748b'; b.style.background = '#fff';
+      });
+      this.style.borderColor = '#2DB8A0'; this.style.color = '#1B3A6B'; this.style.background = '#F0FDFA';
+    });
+  });
+
+  // Bouton step 1 -> 2
+  var b1 = document.getElementById('btn1');
+  if (b1) b1.addEventListener('click', function() { if (!this.disabled) go(2); });
+
+  // Bouton step 2 -> 3
+  document.getElementById('btn2').addEventListener('click', function() { go(3); });
+
+  // Bouton soumettre (step 4)
+  document.getElementById('btn3').addEventListener('click', function() {
+    fsSubmit();
+  });
+
+  // Consent (step 4)
+  var consentWrap = document.getElementById('consentWrap');
+  if (consentWrap) {
+    consentWrap.addEventListener('click', function() {
+      toggleConsent(this);
+    });
+  }
+
+  // Effectif buttons (délégation sur le parent car display:none au chargement)
+  document.getElementById('effectif-wrap').addEventListener('click', function(e) {
+    var btn = e.target.closest('.ebtn');
+    if (!btn) return;
+    FS.effectif = btn.dataset.v;
+    document.querySelectorAll('.ebtn').forEach(function(b) {
+      b.style.borderColor = '#dde6f0';
+      b.style.background = '#F5F8FC';
+      b.querySelector('div').style.color = '#1B3A6B';
+    });
+    btn.style.borderColor = '#2DB8A0';
+    btn.style.background = '#F0FDFA';
+    btn.querySelector('div').style.color = '#2DB8A0';
+    checkStep2();
+  });
+
+  // Salarié buttons
+  document.querySelectorAll('.sbtn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var val = this.dataset.v;
+      FS.salaries = val;
+      document.querySelectorAll('.sbtn').forEach(function(b) {
+        b.style.borderColor = '#dde6f0';
+        b.style.background = '#F5F8FC';
+        b.style.color = '#1B3A6B';
+      });
+      this.style.borderColor = '#2DB8A0';
+      this.style.background = '#F0FDFA';
+      this.style.color = '#2DB8A0';
+      var ew = document.getElementById('effectif-wrap');
+      if (val === 'oui') {
+        ew.style.display = 'block';
+      } else {
+        ew.style.display = 'none';
+        FS.effectif = '';
+        document.querySelectorAll('#effectif-wrap .qty-card').forEach(function(c) { c.classList.remove('sel'); });
+      }
+      checkStep2();
+    });
+  });
+
+  // Init check durée 42h
+  const c = document.querySelector('#d42 .qc-check');
+  if (c) { c.style.background = '#2DB8A0'; c.style.borderColor = '#2DB8A0'; c.style.color = '#fff'; }
+
+  let _ddMouseDown = false;
+  document.getElementById('siretIn').addEventListener('blur', () => {
+    if (!_ddMouseDown) setTimeout(hideDropdown, 150);
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.siret-wrap')) hideDropdown();
+  });
+
+  document.getElementById('siretIn').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !document.getElementById('btn1').disabled) go(2);
+    if (e.key === 'Escape') hideDropdown();
+  });
+});
+
+// Consentement
+function toggleConsent(wrapper) {
+  const box = document.getElementById('consentBox');
+  const checked = box.dataset.checked === '1';
+  if (!checked) {
+    box.dataset.checked = '1';
+    box.style.background = '#2DB8A0';
+    box.style.borderColor = '#2DB8A0';
+    box.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+    wrapper.style.borderColor = '#2DB8A0';
+    wrapper.style.background = '#F0FDFA';
+  } else {
+    box.dataset.checked = '0';
+    box.style.background = '#fff';
+    box.style.borderColor = '#dde6f0';
+    box.innerHTML = '';
+    wrapper.style.borderColor = '#dde6f0';
+    wrapper.style.background = '#F8FAFF';
+  }
+}
+
+// Exposer au HTML
+function selSal(val, el) {
+  FS.salaries = val;
+  document.getElementById('sal-oui').style.borderColor = '#dde6f0';
+  document.getElementById('sal-oui').style.background = '#F5F8FC';
+  document.getElementById('sal-non').style.borderColor = '#dde6f0';
+  document.getElementById('sal-non').style.background = '#F5F8FC';
+  el.style.borderColor = '#2DB8A0';
+  el.style.background = '#F0FDFA';
+
+  const ew = document.getElementById('effectif-wrap');
+  if (ew) ew.style.display = val === 'oui' ? 'block' : 'none';
+  if (val === 'non') { FS.effectif = 'Aucun salarié'; }
+  checkStep2();
+}
+function selEff(el, val) {
+  FS.effectif = val;
+  document.querySelectorAll('#effectif-wrap .qty-card').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+  checkStep2();
+}
+window.onIn          = onIn;
+window.go            = go;
+window.selDur        = selDur;
+window.selQty        = selQty;
+window.fsSubmit      = fsSubmit;
+window.toggleConsent = toggleConsent;
+window.selSal        = selSal;
+window.selEff        = selEff;
+window.selectCivil   = selectCivil;
+window.selectQty      = selectQty;
+checkStep2();
+
+})(); // fin scope isolé
+</script>
+</body>
+</html>
