@@ -705,3 +705,13 @@ h1,h2,h3,h4{letter-spacing:-.3px}
 @media(max-width:600px){
   [style*="LogoQualiopi-300dpi"]{height:34px!important;width:auto!important}
 }
+
+/* ── QUALIOPI hero : taille fixe mobile ── */
+@media(max-width:600px){
+  .h-visual img[alt="Qualiopi"],
+  div[style*="max-width:160px"] img {
+    max-width:110px!important;
+    width:100%!important;
+    height:auto!important;
+  }
+}
