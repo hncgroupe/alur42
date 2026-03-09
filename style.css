@@ -559,82 +559,84 @@ h1,h2,h3,h4{letter-spacing:-.3px}
 /* ── FORMATIONS (fc-grid) ── */
 @media(max-width:900px){.fc-grid{grid-template-columns:1fr 1fr}}
 
-/* Mobile : 1 colonne propre, cards empilées */
+/* Mobile : 1 colonne propre, tout centré */
 @media(max-width:580px){
   .fc-grid{grid-template-columns:1fr!important;gap:12px}
 
   .fc{
     flex-direction:column!important;
-    padding:20px 18px!important;
+    align-items:center!important;
+    text-align:center!important;
+    padding:24px 20px!important;
     border-radius:16px!important;
   }
 
-  /* Header de la card : icône inline avec titre */
   .fc-icon{
-    font-size:28px;
-    margin-bottom:0;
-    width:44px;height:44px;
+    font-size:30px;
+    width:52px!important;height:52px!important;
     background:var(--bgalt);
-    border-radius:12px;
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
-    float:left;
-    margin-right:12px;
-    margin-bottom:4px;
+    border-radius:14px;
+    display:flex!important;align-items:center;justify-content:center;
+    float:none!important;
+    margin:0 auto 12px!important;
   }
+
   .fc-ribbon{
     display:inline-block;
-    margin-bottom:10px;
+    margin:0 auto 10px!important;
     font-size:10px;
-    clear:both;
+    float:none!important;
+    clear:none!important;
   }
-  .fc-h3{font-size:15px;font-weight:700;margin-bottom:6px}
+
+  .fc-h3{font-size:15.5px;font-weight:700;margin-bottom:8px;width:100%}
+
   .fc-p{
     font-size:13px;
     line-height:1.65;
-    color:var(--gray);
-    margin-bottom:12px;
-    padding-bottom:12px;
+    margin-bottom:14px;
+    padding-bottom:14px;
     border-bottom:1px solid var(--border);
-    clear:both;
+    width:100%;
+    float:none!important;
+    clear:none!important;
   }
 
-  /* Ligne prix + toggles côte à côte */
   .fc-toggle-wrap{
-    display:flex;gap:6px;
-    margin:0 0 8px;
-    flex-wrap:nowrap;
+    display:flex!important;gap:8px;
+    justify-content:center!important;
+    margin:0 0 10px;
   }
-  .fc-toggle{padding:6px 16px;font-size:13px;border-radius:20px}
+  .fc-toggle{padding:6px 18px;font-size:13px;border-radius:20px}
 
   .fc-price{
-    display:flex;align-items:baseline;gap:8px;
-    margin:0 0 8px;
+    display:flex!important;align-items:baseline;gap:8px;
+    justify-content:center!important;
+    margin:0 0 10px;
+    width:100%;
   }
   .fc-price-main{font-size:30px;font-weight:900}
   .fc-price-old{font-size:13px}
 
   .fc-price-opco{
     font-size:11px;
-    padding:4px 11px;
-    margin-bottom:14px;
+    padding:4px 12px;
+    margin:0 auto 14px!important;
+    display:inline-block!important;
   }
 
-  /* Spacer : collapse */
   .fc-spacer{display:none!important}
 
-  /* CTA : pleine largeur, bien visible */
   .fc-btn{
-    margin-top:0!important;
     width:100%!important;
     display:block!important;
     text-align:center!important;
     padding:13px!important;
     font-size:14px!important;
     border-radius:10px!important;
+    margin-top:4px!important;
   }
 
-  /* Card featured : forcer fond navy */
   .fc.fc-top{background:linear-gradient(145deg,#0D2B5E,#1B3A6B)!important}
   .fc.fc-top .fc-icon{background:rgba(255,255,255,.12)!important}
   .fc.fc-top .fc-p{border-bottom-color:rgba(255,255,255,.12)!important}
