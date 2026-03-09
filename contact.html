@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" type="image/png" href="https://assets.hncgroupe.fr/alur42/FAVICON_ALUR_42.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - ALUR42 | Formation immobilière Qualiopi</title>
+  <meta name="description" content="Contactez l'équipe ALUR42. Réponse sous 24h ouvrées. Formation ALUR 42h certifiée Qualiopi, prise en charge OPCO.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Contact v2 ── */
+    .contact-hero{background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);padding:110px 24px 56px;position:relative;overflow:hidden}
+    .contact-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 50%,rgba(45,184,160,.12) 0%,transparent 70%)}
+    .contact-hero .container{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+    .contact-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .ch-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,184,160,.15);border:1px solid rgba(45,184,160,.35);color:#2DB8A0;padding:6px 14px;border-radius:20px;font-size:11.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:20px}
+    .ch-title{font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#fff;line-height:1.18;letter-spacing:-.8px;margin-bottom:24px;max-width:400px}
+    .ch-title em{color:#2DB8A0;font-style:normal}
+    .ch-sub{font-size:15.5px;color:rgba(255,255,255,.72);line-height:1.7;margin-bottom:32px}
+    .ch-infos{display:flex;flex-direction:column;gap:14px}
+    .chi{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 18px;transition:all .2s}
+    .chi:hover{background:rgba(255,255,255,.11)}
+    .chi-ico{width:40px;height:40px;border-radius:10px;background:rgba(45,184,160,.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .chi-lbl{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:3px}
+    .chi-val{font-size:14px;font-weight:600;color:#fff}
+    .chi-hint{font-size:12px;color:rgba(255,255,255,.5)}
+    /* Formulaire côté héro */
+    .ch-form-card{background:#fff;border-radius:20px;padding:36px;box-shadow:0 32px 80px rgba(0,0,0,.22)}
+    .cf-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:4px;letter-spacing:-.4px}
+    .cf-sub{font-size:13px;color:var(--gray);margin-bottom:24px}
+    .cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    .cf-field{display:flex;flex-direction:column;gap:5px}
+    .cf-field label{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.3px}
+    .cf-field input,.cf-field select,.cf-field textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:9px;font-family:inherit;font-size:13.5px;color:var(--text);background:#fff;transition:border-color .2s;outline:none}
+    .cf-field input:focus,.cf-field select:focus,.cf-field textarea:focus{border-color:var(--teal)}
+    .cf-field textarea{resize:vertical;min-height:90px}
+    .cf-full{grid-column:1/-1}
+    .cf-req{color:var(--teal);margin-left:2px}
+    .cf-consent{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--gray);margin-bottom:18px;line-height:1.5;cursor:pointer}
+    .cf-consent input{margin-top:2px;accent-color:var(--teal)}
+    /* Qualiopi block sous form */
+    .ch-quali-block{margin-top:20px;background:#fff;border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:16px;box-shadow:0 2px 12px rgba(27,58,107,0.08)}
+    .ch-quali-block img{height:60px;width:auto;object-fit:contain;background:#fff}
+    .ch-quali-block p{font-size:12.5px;color:var(--gray);line-height:1.6}
+    .ch-quali-block strong{color:var(--navy)}
+    /* Success state */
+    .cf-success{display:none;text-align:center;padding:24px 16px}
+    .cf-success-ico{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2DB8A0,#16A34A);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px}
+    .cf-success h3{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:8px}
+    .cf-success p{font-size:13.5px;color:var(--gray);line-height:1.6}
+    @media(max-width:900px){
+      .contact-hero-inner{grid-template-columns:1fr;gap:32px}
+      .ch-form-card{padding:26px 20px}
+      .cf-grid{grid-template-columns:1fr}
+    }
+    /* SIRET autocomplete */
+    .cf-siret-wrap{position:relative;margin-bottom:0}
+    .cf-siret-wrap input{width:100%;font-family:inherit;font-size:13.5px;padding:11px 42px 11px 13px;border:1.5px solid #dde6f0;border-radius:10px;color:#1B3A6B;background:#F5F8FC;outline:none;transition:all .2s;box-sizing:border-box}
+    .cf-siret-wrap input:focus{border-color:#2DB8A0;background:#fff}
+    .cf-siret-wrap input.valid{border-color:#16A34A;background:#F0FDF4}
+    .cf-spin{position:absolute;right:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;border:2px solid #dde6f0;border-top-color:#2DB8A0;border-radius:50%;animation:cfspin .65s linear infinite;display:none}
+    .cf-spin.show{display:block}
+    @keyframes cfspin{to{transform:translateY(-50%) rotate(360deg)}}
+    .cf-ent-card{background:linear-gradient(135deg,#F0FDFA,#EFF6FF);border:1.5px solid rgba(45,184,160,.3);border-radius:10px;padding:10px 14px;margin-top:8px;display:none;font-size:12px}
+    .cf-ent-card .ent-nom{font-weight:800;font-size:13px;color:#1B3A6B;margin-bottom:3px}
+    .cf-ent-card .ent-det{color:#475569;font-size:11.5px}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-c">
+    <a href="index.html" class="nav-brand"><img src="https://assets.hncgroupe.fr/alur42/logo-alur42.png" class="nav-logo" alt="Alur 42"></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="index.html#formations" class="nav-link">Formations</a>
+      <a href="index.html#financement" class="nav-link">Financement</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <a href="formulaires.html" class="nav-cta">Vérifier mon éligibilité</a>
+    <button class="nav-burger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="nav-mob">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#formations">Formations</a>
+    <a href="index.html#financement">Financement</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="formulaires.html" class="nav-cta" style="display:block;text-align:center;margin-top:8px">Vérifier mon éligibilité</a>
+  </div>
+</nav>
+
+<section class="contact-hero">
+  <div class="container">
+    <div class="contact-hero-inner">
+
+      <!-- GAUCHE : infos -->
+      <div>
+        <h1 class="ch-title">Une question ?<br><em>Nos conseillers vous répondent</em></h1>
+        <p style="font-size:15px;color:rgba(255,255,255,.65);margin-bottom:28px;line-height:1.65">Organisme certifié Qualiopi. Disponibles du lundi au vendredi, 9h - 18h.</p>
+
+        <div class="ch-infos">
+          <a href="mailto:contact@alur42.fr" class="chi" style="text-decoration:none">
+            <div class="chi-ico">📧</div>
+            <div>
+              <div class="chi-lbl">Email</div>
+              <div class="chi-val">contact@alur42.fr</div>
+              <div class="chi-hint">Réponse sous 24h ouvrées</div>
+            </div>
+          </a>
+          <div class="chi">
+            <div class="chi-ico">⏰</div>
+            <div>
+              <div class="chi-lbl">Horaires</div>
+              <div class="chi-val">Lun - Ven : 9h - 18h</div>
+              <div class="chi-hint">Hors jours fériés</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DROITE : formulaire -->
+      <div>
+        <div class="ch-form-card">
+          <div id="cfForm">
+            <div class="cf-title">Envoyez un message</div>
+            <div class="cf-sub">Nous vous répondons sous 24h ouvrées.</div>
+            <div id="cf-form-inner">
+              <div class="cf-grid">
+                <div class="cf-field cf-full">
+                  <label>Civilité</label>
+                  <div style="display:flex;gap:10px;margin-top:6px">
+                    <div id="cf-civ-m" class="cf-civ-btn" data-v="M" style="flex:1;padding:10px;border:2px solid #dde6f0;border-radius:10px;text-align:center;cursor:pointer;font-weight:700;font-size:13.5px;color:#64748b;transition:all .2s;background:#f8faff">Monsieur</div>
+                    <div id="cf-civ-f" class="cf-civ-btn" data-v="F" style="flex:1;padding:10px;border:2px solid #dde6f0;border-radius:10px;text-align:center;cursor:pointer;font-weight:700;font-size:13.5px;color:#64748b;transition:all .2s;background:#f8faff">Madame</div>
+                  </div>
+                  <input type="hidden" id="cf-civil" value="">
+                </div>
+                <div class="cf-field">
+                  <label>Prénom <span class="cf-req">*</span></label>
+                  <input type="text" id="cf-prenom" placeholder="Jean" required>
+                </div>
+                <div class="cf-field">
+                  <label>Nom <span class="cf-req">*</span></label>
+                  <input type="text" id="cf-nom" placeholder="Dupont" required>
+                </div>
+                <div class="cf-field">
+                  <label>Email <span class="cf-req">*</span></label>
+                  <input type="email" id="cf-email" placeholder="jean@agence.fr" required>
+                </div>
+                <div class="cf-field">
+                  <label>Téléphone</label>
+                  <input type="tel" id="cf-tel" placeholder="06 12 34 56 78">
+                </div>
+                <div class="cf-field cf-full">
+                  <label>Entreprise</label>
+                  <div class="cf-siret-wrap">
+                    <input type="text" id="cf-siret" placeholder="SIRET ou nom d'entreprise..." autocomplete="off">
+                    <div class="cf-spin" id="cf-spin"></div>
+                  </div>
+                  <div class="cf-ent-card" id="cf-ent-card">
+                    <div class="ent-nom" id="cf-ent-nom"></div>
+                    <div class="ent-det">SIRET : <span id="cf-ent-siret">-</span> · <span id="cf-ent-addr"></span></div>
+                  </div>
+                </div>
+                <div class="cf-field">
+                  <label>Objet <span class="cf-req">*</span></label>
+                  <select id="cf-objet" required>
+                    <option value="">Sélectionnez...</option>
+                    <option>Question financement OPCO</option>
+                    <option>Question sur la formation</option>
+                    <option>Problème technique</option>
+                    <option>Demande de devis</option>
+                    <option>Autre</option>
+                  </select>
+                </div>
+                <div class="cf-field cf-full">
+                  <label>Message <span class="cf-req">*</span></label>
+                  <textarea id="cf-message" placeholder="Votre question ou demande..." required></textarea>
+                </div>
+              </div>
+              <div id="cf-consent-wrap" style="display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#5a6b82;margin-bottom:18px;line-height:1.5;cursor:pointer;padding:10px;border-radius:8px;border:1.5px solid #dde6f0;background:#f8faff">
+                <div id="cf-consent-box" style="width:18px;height:18px;border-radius:5px;border:2px solid #dde6f0;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s;background:#fff"></div>
+                <span>J'accepte que mes données soient traitées pour répondre à ma demande (RGPD).</span>
+              </div>
+              <button type="button" id="cf-submit-btn" class="btn btn-teal btn-full">Envoyer le message →</button>
+            </div>
+          </div>
+          <div class="cf-success" id="cfSuccess">
+            <div class="cf-success-ico">✓</div>
+            <h3>Message envoyé !</h3>
+            <p>Merci pour votre message. Notre équipe vous répondra dans les 24 heures ouvrées.</p>
+          </div>
+        </div>
+
+        <div class="ch-quali-block">
+          <img src="https://assets.hncgroupe.fr/alur42/LogoQualiopi-300dpi-Avec-Marianne.png" alt="Qualiopi">
+          <p>Organisme certifié <strong>Qualiopi</strong> pour les actions de formation continue - Certifié République Française</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-brand">
+      <img src="https://assets.hncgroupe.fr/alur42/logo-alur42.png" class="f-logo" alt="Alur 42">
+      <p>Formation ALUR 42h certifiée Qualiopi. Prise en charge intégrale par votre OPCO. Attestation officielle pour le renouvellement de votre carte professionnelle.</p>
+      <img src="https://assets.hncgroupe.fr/alur42/LogoQualiopi-300dpi-Avec-Marianne.png" alt="Qualiopi" class="f-quali">
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Navigation</div>
+      <a href="index.html">Accueil</a>
+      <a href="index.html#formations">Formations</a>
+      <a href="index.html#financement">Financement</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Espace client</div>
+      <a href="formulaires.html">Vérifier mon éligibilité</a>
+      <a href="dossier-opco.html">Formulaire de prise en charge</a>
+      <a href="blog.html">Blog</a>
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Contact &amp; Légal</div>
+      <a href="mailto:contact@alur42.fr">contact@alur42.fr</a>
+      <a href="contact.html">Contact</a>
+      <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,.3);line-height:1.9">
+        <p>Certifié Qualiopi</p>
+        <p>Médiateur : AME CONSO</p>
+        <p>197 Bd Saint-Germain - 75007 Paris</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bot">
+    <div class="footer-bot-in">
+      <span>© 2026 ALUR42.fr - Tous droits réservés</span>
+      <span>Organisme de formation certifié Qualiopi</span>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script>
+var cfConsentChecked = false;
+var cfEntreprise = '';
+var cfSiret = '';
+var cfAdresse = '';
+var cfTimer = null;
+var cfAbort = null;
+var cfCivil = '';
+
+document.addEventListener('DOMContentLoaded', function() {
+  // SIRET autocomplete
+  var cfSiretInput = document.getElementById('cf-siret');
+  if (cfSiretInput) {
+    cfSiretInput.addEventListener('input', function() {
+      var v = this.value.trim();
+      cfEntreprise = v;
+      cfSiret = '';
+      document.getElementById('cf-ent-card').style.display = 'none';
+      if (v.length < 2) return;
+      clearTimeout(cfTimer);
+      document.getElementById('cf-spin').classList.add('show');
+      cfTimer = setTimeout(function() { cfFetchEnt(v); }, 400);
+    });
+
+    cfSiretInput.addEventListener('blur', function() {
+      setTimeout(function() {
+        var dd = document.getElementById('cf-ac-dropdown');
+        if (dd) dd.style.display = 'none';
+      }, 200);
+    });
+  }
+
+  // Bouton envoyer
+  document.getElementById('cf-submit-btn').addEventListener('click', function() {
+    submitContact();
+  });
+
+  // Civilité
+  document.querySelectorAll('.cf-civ-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      cfCivil = this.dataset.v === 'M' ? 'Monsieur' : 'Madame';
+      document.getElementById('cf-civil').value = cfCivil;
+      document.querySelectorAll('.cf-civ-btn').forEach(function(b) {
+        b.style.borderColor = '#dde6f0';
+        b.style.background = '#f8faff';
+        b.style.color = '#64748b';
+      });
+      this.style.borderColor = '#2DB8A0';
+      this.style.background = '#F0FDFA';
+      this.style.color = '#1B3A6B';
+    });
+  });
+
+  // Consent
+  document.getElementById('cf-consent-wrap').addEventListener('click', function() {
+    cfConsentChecked = !cfConsentChecked;
+    var box = document.getElementById('cf-consent-box');
+    if (cfConsentChecked) {
+      box.style.background = '#2DB8A0';
+      box.style.borderColor = '#2DB8A0';
+      box.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+    } else {
+      box.style.background = '#fff';
+      box.style.borderColor = '#dde6f0';
+      box.innerHTML = '';
+    }
+  });
+});
+
+function cfFetchEnt(q) {
+  if (cfAbort) cfAbort.abort();
+  cfAbort = new AbortController();
+  var clean = q.replace(/\D/g, '');
+  var url = clean.length >= 9
+    ? 'https://recherche-entreprises.api.gouv.fr/search?q=' + clean + '&limite=5'
+    : 'https://recherche-entreprises.api.gouv.fr/search?q=' + encodeURIComponent(q) + '&limite=5';
+  fetch(url, { signal: cfAbort.signal })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      document.getElementById('cf-spin').classList.remove('show');
+      if (d.results && d.results.length > 0) {
+        if (clean.length >= 14) {
+          cfShowRes(d.results[0]);
+        } else {
+          cfShowDropdown(d.results);
+        }
+      }
+    })
+    .catch(function(e) {
+      document.getElementById('cf-spin').classList.remove('show');
+    });
+}
+
+function cfShowDropdown(results) {
+  var dd = document.getElementById('cf-ac-dropdown');
+  if (!dd) {
+    dd = document.createElement('div');
+    dd.id = 'cf-ac-dropdown';
+    dd.style.cssText = 'position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:9999;background:#fff;border:2px solid #2DB8A0;border-radius:12px;box-shadow:0 8px 24px rgba(13,43,94,.15);overflow:hidden;max-height:200px;overflow-y:auto;';
+    document.querySelector('.cf-siret-wrap').appendChild(dd);
+  }
+  dd.innerHTML = '';
+  results.forEach(function(item) {
+    var nom = item.nom_complet || item.nom_raison_sociale || '';
+    var siret = item.siege && item.siege.siret ? item.siege.siret : item.siren || '';
+    var ville = item.siege && item.siege.libelle_commune ? item.siege.libelle_commune : '';
+    var adresse = item.siege && item.siege.adresse ? item.siege.adresse : '';
+    var cp = item.siege && item.siege.code_postal ? item.siege.code_postal : '';
+    var row = document.createElement('div');
+    row.style.cssText = 'padding:10px 14px;cursor:pointer;border-bottom:1px solid #f1f5f9;transition:background .15s;';
+    row.innerHTML = '<div style="font-weight:800;font-size:13px;color:#1B3A6B">' + nom + '</div><div style="font-size:11px;color:#475569">SIRET : ' + (siret || '-') + ' · ' + ville + '</div>';
+    row.addEventListener('mouseenter', function() { this.style.background = '#F0FDFA'; });
+    row.addEventListener('mouseleave', function() { this.style.background = ''; });
+    row.addEventListener('mousedown', function(e) { e.preventDefault(); });
+    row.addEventListener('click', function() {
+      document.getElementById('cf-siret').value = nom;
+      dd.style.display = 'none';
+      cfShowRes(item);
+    });
+    dd.appendChild(row);
+  });
+  dd.style.display = 'block';
+}
+
+function cfShowRes(item) {
+  var nom = item.nom_complet || item.nom_raison_sociale || '';
+  var siret = item.siege && item.siege.siret ? item.siege.siret : item.siren || '';
+  var ville = item.siege && item.siege.libelle_commune ? item.siege.libelle_commune : '';
+  var adresse = item.siege && item.siege.adresse ? item.siege.adresse : '';
+  var cp = item.siege && item.siege.code_postal ? item.siege.code_postal : '';
+  var adresseFull = [adresse, cp, ville].filter(Boolean).join(', ');
+  cfEntreprise = nom;
+  cfSiret = siret;
+  cfAdresse = adresseFull;
+  document.getElementById('cf-siret').value = nom;
+  document.getElementById('cf-ent-nom').textContent = nom;
+  document.getElementById('cf-ent-siret').textContent = siret || '-';
+  document.getElementById('cf-ent-addr').textContent = adresseFull || ville || '';
+  document.getElementById('cf-ent-card').style.display = 'block';
+  document.getElementById('cf-siret').classList.add('valid');
+  var dd = document.getElementById('cf-ac-dropdown');
+  if (dd) dd.style.display = 'none';
+}
+
+function submitContact() {
+  if (!cfConsentChecked) {
+    var wrap = document.getElementById('cf-consent-wrap');
+    wrap.style.borderColor = '#EF4444';
+    wrap.style.background = '#FEF2F2';
+    setTimeout(function() { wrap.style.borderColor = '#dde6f0'; wrap.style.background = '#f8faff'; }, 2000);
+    return;
+  }
+  var payload = {
+    source: 'alur42',
+    civil: cfCivil,
+    entreprise: cfEntreprise || '',
+    siret: cfSiret || '',
+    adresse: cfAdresse || '',
+    marque: 'Alur42.fr',
+    type: 'contact',
+    date: new Date().toLocaleDateString('fr-FR'),
+    heure: new Date().toLocaleTimeString('fr-FR'),
+    prenom: document.getElementById('cf-prenom') ? document.getElementById('cf-prenom').value : '',
+    nom: document.getElementById('cf-nom') ? document.getElementById('cf-nom').value : '',
+    email: document.getElementById('cf-email') ? document.getElementById('cf-email').value : '',
+    tel: document.getElementById('cf-tel') ? document.getElementById('cf-tel').value : '',
+    statut: document.getElementById('cf-statut') ? document.getElementById('cf-statut').value : '',
+    objet: document.getElementById('cf-objet') ? document.getElementById('cf-objet').value : '',
+    message: document.getElementById('cf-message') ? document.getElementById('cf-message').value : ''
+  };
+
+  // Spinner pendant envoi
+  var submitBtn = document.getElementById('cf-submit-btn');
+  var origBtnText = submitBtn ? submitBtn.innerHTML : '';
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '⏳ Envoi...'; }
+
+  fetch('https://hook.eu1.make.com/xgow9k71csvfy0sc9ktr8wx7rmb9watg', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  })
+  .then(function(resp) {
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    return resp.text();
+  })
+  .then(function() {
+    document.getElementById('cfForm').style.display = 'none';
+    document.getElementById('cfSuccess').style.display = 'block';
+  })
+  .catch(function(e) {
+    console.warn('Make webhook error:', e);
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origBtnText;
+    }
+    var errEl = document.getElementById('cf-error-msg');
+    if (!errEl) {
+      errEl = document.createElement('div');
+      errEl.id = 'cf-error-msg';
+      errEl.style.cssText = 'margin-top:12px;padding:10px 14px;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;font-size:13px;color:#DC2626';
+      var form = document.getElementById('cfForm');
+      if (form) form.appendChild(errEl);
+    }
+    errEl.textContent = "⚠ Erreur d\'envoi. Réessayez ou écrivez-nous à contact@alur42.fr";
+    errEl.style.display = 'block';
+  });
+}
+</script>
+</body>
+</html>
