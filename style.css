@@ -694,3 +694,9 @@ h1,h2,h3,h4{letter-spacing:-.3px}
   .scroll-item img{max-width:120px!important;height:auto!important}
 }
 
+
+/* ── QUALIOPI logo : taille mobile ── */
+@media(max-width:600px){
+  .h-quali img,
+  [style*="LogoQualiopi"] img {height:44px!important;width:auto!important}
+}
