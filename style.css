@@ -498,53 +498,124 @@ h1,h2,h3,h4{letter-spacing:-.3px}
 .fc-top .fc-toggle.active{background:var(--teal)!important;border-color:var(--teal)!important;color:#fff!important}
 
 /* ═══════════════════════════════════════════
-   MOBILE UX - MAX 900px
+   MOBILE UX — CORRECTIONS COMPLÈTES
 ═══════════════════════════════════════════ */
 
-/* Carte flottante hero : déplacée à gauche, agrandie */
+/* ── HERO ── */
 .h-visual{align-items:center;justify-content:center}
-.h-card{max-width:420px;width:100%}
 
-@media(min-width:901px){
-  .h-visual{align-items:flex-start;margin-left:-24px}
-  .h-card{max-width:430px}
-}
-
-/* Mobile hero text */
 @media(max-width:900px){
+  /* Hero : colonne unique, centré */
+  .hero-in{grid-template-columns:1fr;gap:28px;padding-top:28px;padding-bottom:36px}
   .h-text{text-align:center}
   .h-badge{margin:0 auto 20px}
   .h-sub{margin:0 auto 14px;text-align:center}
   .h-legal{text-align:left}
   .h-btns{justify-content:center}
   .h-trust{justify-content:center}
-  .h-visual{margin-top:8px}
+  .h-visual{margin-top:0;align-items:center}
+  /* Image hero : hauteur réduite sur tablette */
+  .h-visual img{height:320px!important}
 }
 
-/* H1 titre : empêcher wrap sur "Formation ALUR 42h" */
-@media(max-width:540px){
-  .h-title{font-size:clamp(28px,8vw,42px)}
-  .h-title br:first-child{display:none}
-}
-
-/* Sections : padding réduit sur mobile */
 @media(max-width:600px){
-  .section{padding:44px 0}
-  .sh h2{font-size:clamp(22px,6vw,32px)}
-  .sh p{font-size:14.5px}
-  .btn-lg{padding:14px 22px;font-size:14.5px;width:100%;text-align:center;display:block}
-  .h-btns .btn{flex:1 1 100%}
-  .trust-pill{font-size:11.5px;padding:5px 11px}
+  /* Image hero : hauteur raisonnable sur mobile */
+  .h-visual img{height:220px!important}
+  /* Titre : taille fluide */
+  .h-title{font-size:clamp(26px,7.5vw,40px)}
+  .h-title br{display:none}
+  /* Boutons hero : pleine largeur */
+  .h-btns{flex-direction:column;gap:10px}
+  .h-btns .btn{width:100%;justify-content:center}
+  /* Trust pills : wrap propre */
+  .h-trust{gap:6px}
+  .trust-pill{font-size:11px;padding:5px 10px}
 }
 
-/* Stats band mobile */
-@media(max-width:480px){
-  .stats-g{grid-template-columns:1fr 1fr;gap:12px}
-  .stat-n{font-size:34px}
+/* ── STATS BAND ── */
+@media(max-width:680px){
+  .stats-g{grid-template-columns:1fr 1fr}
+  .stat-i:nth-child(2){border-right:none}
+  .stat-i:nth-child(3){border-right:1px solid var(--border)}
+}
+@media(max-width:380px){
+  .stat-n{font-size:28px}
+  .stat-l{font-size:11.5px}
 }
 
-/* Navigation mobile : CTA bien centré */
+/* ── SECTIONS ── */
+@media(max-width:600px){
+  .section{padding:40px 0}
+  .sh{margin-bottom:26px}
+  .sh h2{font-size:clamp(20px,6vw,30px);letter-spacing:-.5px}
+  .sh p{font-size:14px}
+}
+
+/* ── STEPS ── */
+@media(max-width:760px){
+  .steps{flex-direction:column;gap:16px}
+  .step{min-height:auto;padding:28px 20px 24px}
+  .step-arr{display:none}
+}
+
+/* ── FORMATIONS (fc-grid) ── */
+@media(max-width:900px){.fc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){
+  .fc-grid{grid-template-columns:1fr}
+  .fc{padding:22px 18px}
+}
+
+/* ── OPCO CARDS ── */
+.opco-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.opco-c{min-width:140px;max-width:160px;flex:1 1 140px;padding:20px 12px 16px}
+
+@media(max-width:600px){
+  .opco-c{min-width:calc(50% - 8px);max-width:calc(50% - 8px);flex:0 1 calc(50% - 8px)}
+  .opco-logo-wrap{height:60px}
+  .opco-ab{font-size:13px}
+  .opco-wh{font-size:11px}
+}
+@media(max-width:380px){
+  .opco-c{min-width:100%;max-width:100%}
+}
+
+/* ── TÉMOIGNAGES ── */
+@media(max-width:900px){.temo-g{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.temo-g{grid-template-columns:1fr}}
+
+/* ── CTA BAND ── */
+@media(max-width:700px){
+  .cta-in{flex-direction:column;text-align:center;gap:20px}
+  .cta-r{align-items:center}
+  .cta-r .btn{width:100%;justify-content:center}
+  .cta-bs{justify-content:center}
+}
+
+/* ── FOOTER ── */
+@media(max-width:900px){.footer-in{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:500px){
+  .footer-in{grid-template-columns:1fr;gap:24px}
+  .footer-bot-in{flex-direction:column;text-align:center;gap:4px}
+}
+
+/* ── NAVIGATION MOBILE ── */
 @media(max-width:880px){
-  .nav-mob a.nav-cta{justify-content:center}
+  .nav-mob a.nav-cta{display:block;text-align:center}
+}
+
+/* ── BOUTONS GÉNÉRAUX MOBILE ── */
+@media(max-width:600px){
+  .btn-lg{font-size:14.5px;padding:13px 22px}
+}
+
+/* ── CONTAINER : padding latéral réduit sur très petit écran ── */
+@media(max-width:380px){
+  .container{padding:0 16px}
+}
+
+/* ── SCROLL BAND : plus compact en mobile ── */
+@media(max-width:480px){
+  .scroll-item{padding:0 20px;height:64px}
+  .scroll-item img{max-width:120px!important;height:auto!important}
 }
 
