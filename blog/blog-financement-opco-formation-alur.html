@@ -1,459 +1,394 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comment financer sa formation ALUR avec l'OPCO ATLAS ? | ALUR42</title>
-    <meta name="description" content="Guide complet : financer votre formation ALUR obligatoire via l'OPCO ATLAS. Éligibilité, processus, délais et montants de prise en charge.">
-    <meta name="keywords" content="formation ALUR ATLAS, financement OPCO ATLAS, agent immobilier ATLAS">
-    <meta name="author" content="ALUR42">
-    <style>
-        :root {
-            --navy: #1B3A6B;
-            --teal: #2DB8A0;
-            --cream: #F5F8FC;
-            --light-gray: #F0F2F5;
-            --dark-gray: #333;
-            --border: #E0E0E0;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background-color: #fff;
-        }
-        
-        /* Navbar */
-        .navbar {
-            background: var(--navy);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .navbar-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .navbar-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--teal);
-        }
-        
-        .navbar-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-        }
-        
-        .navbar-links a:hover {
-            color: var(--teal);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.95;
-        }
-        
-        /* Main Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 2rem;
-        }
-        
-        /* Article Content */
-        .article-content h2 {
-            color: var(--navy);
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid var(--teal);
-            padding-bottom: 0.5rem;
-        }
-        
-        .article-content h3 {
-            color: var(--teal);
-            font-size: 1.3rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .article-content p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-        
-        .article-content ul {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .article-content li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .article-content strong {
-            color: var(--navy);
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .sidebar-box {
-            background: var(--cream);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--teal);
-        }
-        
-        .sidebar-box h3 {
-            color: var(--navy);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--teal);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            text-align: center;
-            width: 100%;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: var(--navy);
-        }
-        
-        /* FAQ Section */
-        .faq {
-            background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 3rem;
-        }
-        
-        .faq h2 {
-            border-bottom: none;
-            margin-bottom: 1.5rem;
-        }
-        
-        .faq-item {
-            margin-bottom: 1.5rem;
-        }
-        
-        .faq-item strong {
-            color: var(--navy);
-        }
-        
-        .faq-item p {
-            margin-top: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--navy);
-            color: white;
-            padding: 3rem 2rem 1rem;
-            margin-top: 3rem;
-        }
-        
-        .footer-in {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-col h4 {
-            color: var(--teal);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col a {
-            color: #ccc;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-col a:hover {
-            color: var(--teal);
-        }
-        
-        .footer-bot {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #ccc;
-        }
-        
-        .qualiopi-badge {
-            font-size: 0.8rem;
-            color: var(--teal);
-            font-weight: bold;
-            margin-top: 0.5rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .footer-in {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+  <link rel="icon" type="image/png" href="https://assets.hncgroupe.fr/alur42/FAVICON_ALUR_42.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment financer sa formation ALUR avec l'OPCO ATLAS ? | ALUR42.fr</title>
+  <meta name="description" content="Guide complet : financer votre formation ALUR obligatoire via l'OPCO ATLAS. Éligibilité, processus, délais et montants de prise en charge.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Comment financer sa formation ALUR avec l'OPCO ATLAS ?">
+  <meta property="og:description" content="Guide complet pour les agents immobiliers salariés : comprendre ATLAS, les conditions d'éligibilité et les étapes de financement.">
+  <meta property="og:type" content="article">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Comment financer sa formation ALUR avec l'OPCO ATLAS ?",
+    "datePublished": "2026-03-09",
+    "dateModified": "2026-03-09",
+    "author": {"@type": "Organization", "name": "ALUR42.fr"},
+    "publisher": {"@type": "Organization", "name": "ALUR42.fr"},
+    "description": "Guide complet sur le financement OPCO ATLAS pour la formation ALUR des agents immobiliers salariés."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:   #1B3A6B;
+      --navy2:  #142d55;
+      --teal:   #2DB8A0;
+      --teal2:  #22a38d;
+      --green:  #3EC6A0;
+      --cream:  #F5F8FC;
+      --white:  #FFFFFF;
+      --text:   #1a2840;
+      --gray:   #5a6b82;
+      --gray2:  #8fa0b5;
+      --border: #dde6f0;
+      --bgalt:  #EEF3F9;
+      --gold:   #F5A623;
+      --ok:     #16A34A;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:15px}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    /* ═══ NAVBAR ═══ */
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav-c{max-width:1180px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;gap:8px}
+    .nav-brand{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+    .nav-links{display:flex;align-items:center;gap:2px;margin:0 auto}
+    .nav-link{padding:8px 13px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--gray);transition:all .18s}
+    .nav-link:hover{color:var(--navy);background:var(--bgalt)}
+    .nav-cta{display:inline-block;padding:10px 20px;border-radius:8px;background:var(--teal);color:#fff;font-size:13px;font-weight:700;transition:all .2s;white-space:nowrap}
+    .nav-cta:hover{background:var(--teal2);transform:translateY(-1px)}
+    @media(max-width:768px){.nav-links{display:none}}
+
+    /* ═══ HERO ARTICLE ═══ */
+    .article-hero{padding:120px 24px 60px;background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);position:relative;overflow:hidden}
+    .article-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .article-hero .container{max-width:800px;margin:0 auto;position:relative;z-index:1}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.6);margin-bottom:20px}
+    .breadcrumb a{color:rgba(255,255,255,.6);transition:color .2s}
+    .breadcrumb a:hover{color:#fff}
+    .breadcrumb span{color:rgba(255,255,255,.4)}
+    .article-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(45,184,160,.2);border:1px solid rgba(45,184,160,.4);color:var(--teal);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:20px}
+    .article-hero h1{font-size:clamp(28px,5vw,46px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:20px;letter-spacing:-.5px}
+    .article-meta{display:flex;align-items:center;flex-wrap:wrap;gap:16px;color:rgba(255,255,255,.65);font-size:13px}
+    .meta-item{display:flex;align-items:center;gap:6px}
+    .article-intro{margin-top:28px;padding:20px 24px;background:rgba(255,255,255,.08);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;color:rgba(255,255,255,.9);font-size:16px;line-height:1.7}
+
+    /* ═══ LAYOUT ═══ */
+    .article-layout{max-width:1180px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start}
+    @media(max-width:900px){.article-layout{grid-template-columns:1fr;gap:40px}}
+
+    /* ═══ CONTENT ═══ */
+    .article-body h2{font-size:24px;font-weight:800;color:var(--navy);margin:44px 0 16px;padding-top:44px;border-top:1px solid var(--border);letter-spacing:-.3px}
+    .article-body h2:first-child{margin-top:0;padding-top:0;border-top:none}
+    .article-body h3{font-size:18px;font-weight:700;color:var(--navy);margin:28px 0 12px}
+    .article-body p{color:#2d3f56;font-size:15.5px;line-height:1.8;margin-bottom:18px}
+    .article-body strong{color:var(--navy);font-weight:700}
+    .article-body ul{margin:16px 0 18px 20px;display:flex;flex-direction:column;gap:8px}
+    .article-body li{color:#2d3f56;font-size:15.5px;line-height:1.7}
+
+    /* Highlight box */
+    .highlight-box{background:linear-gradient(135deg,#e8f4ff 0%,#f0faff 100%);border:1px solid #c0daf7;border-left:4px solid var(--navy);border-radius:0 12px 12px 0;padding:20px 24px;margin:24px 0}
+    .highlight-box.teal{background:linear-gradient(135deg,#e6faf7 0%,#f0fdf9 100%);border-color:#a8e8da;border-left-color:var(--teal)}
+    .highlight-box.gold{background:linear-gradient(135deg,#fffbeb 0%,#fef9e7 100%);border-color:#fde68a;border-left-color:var(--gold)}
+    .highlight-box p{margin-bottom:0}
+    .highlight-box .box-title{font-weight:700;font-size:14px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+
+    /* Table */
+    .table-wrap{overflow-x:auto;margin:24px 0}
+    table{width:100%;border-collapse:collapse;font-size:14px}
+    table th{background:var(--bgalt);color:var(--navy);font-weight:700;padding:14px 16px;text-align:left;border:1px solid var(--border)}
+    table td{padding:14px 16px;border:1px solid var(--border)}
+    table tr:hover{background:#f5f8fc}
+
+    /* Tags */
+    .article-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border)}
+    .tag{display:inline-block;background:var(--bgalt);color:var(--navy);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600}
+    .tag:hover{background:var(--border)}
+
+    /* Sidebar */
+    .sidebar{display:flex;flex-direction:column;gap:24px}
+    .sidebar-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(27,58,107,.06)}
+    .sidebar-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px}
+    .toc-list{list-style:none}
+    .toc-list li{margin-bottom:8px}
+    .toc-list a{display:block;padding:8px 12px;border-radius:6px;color:var(--gray);font-size:13px;transition:all .2s}
+    .toc-list a:hover{color:var(--navy);background:var(--bgalt)}
+
+    .cta-card{background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);color:#fff;border-radius:12px;padding:24px;text-align:center;box-shadow:0 8px 24px rgba(27,58,107,.15)}
+    .cta-emoji{font-size:40px;margin-bottom:12px}
+    .cta-card h3{font-size:17px;font-weight:800;margin-bottom:10px;color:#fff}
+    .cta-card p{font-size:14px;line-height:1.6;margin-bottom:16px;color:rgba(255,255,255,.85)}
+    .btn{display:inline-block;background:var(--teal);color:#fff;font-weight:700;padding:12px 24px;border-radius:8px;font-size:13px;transition:all .2s}
+    .btn:hover{background:var(--teal2);transform:translateY(-2px)}
+    .cta-note{font-size:12px;color:rgba(255,255,255,.7);margin-top:12px}
+
+    /* Footer CTA */
+    .footer-cta{background:linear-gradient(135deg,var(--navy),#1d4a8a);color:#fff;padding:60px 24px;text-align:center}
+    .footer-cta h2{font-size:32px;font-weight:800;margin-bottom:16px}
+    .footer-cta p{font-size:16px;margin-bottom:24px;color:rgba(255,255,255,.85);max-width:600px;margin-left:auto;margin-right:auto}
+    .btn-cta{display:inline-block;background:var(--teal);color:#fff;font-weight:700;padding:14px 32px;border-radius:10px;font-size:14px;transition:all .2s}
+    .btn-cta:hover{background:var(--teal2);transform:translateY(-2px)}
+    .cta-sub{font-size:13px;color:rgba(255,255,255,.65);margin-top:16px}
+
+    /* Footer */
+    .footer{background:var(--navy);color:rgba(255,255,255,.8);padding:60px 24px 20px}
+    .footer-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:40px}
+    .footer-brand p{font-size:13.5px;line-height:1.8;margin:12px 0;color:rgba(255,255,255,.6)}
+    .f-logo{height:40px;margin-bottom:12px}
+    .f-quali{height:60px;margin-top:16px}
+    .footer-col{display:flex;flex-direction:column;gap:12px}
+    .f-col-t{font-weight:700;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+    .footer-col a{font-size:13.5px;color:rgba(255,255,255,.65);transition:color .2s}
+    .footer-col a:hover{color:#fff}
+    .footer-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
+    .footer-bot-in{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.4)}
+    @media(max-width:768px){.footer-in{grid-template-columns:1fr;gap:24px}.footer-bot-in{flex-direction:column;gap:8px}}
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-content">
-            <div class="navbar-logo">ALUR42</div>
-            <div class="navbar-links">
-                <a href="index.html">Accueil</a>
-                <a href="blog.html">Blog</a>
-                <a href="formulaires.html">S'inscrire</a>
-            </div>
-        </div>
-    </nav>
-    
-    <!-- Hero -->
-    <section class="hero">
-        <h1>Comment financer sa formation ALUR avec l'OPCO ATLAS ?</h1>
-        <p>Guide complet pour les agents immobiliers salariés : comprendre ATLAS, les conditions d'éligibilité et les étapes de financement.</p>
-    </section>
-    
-    <!-- Main Content -->
-    <div class="container">
-        <main class="article-content">
-            <p>Si vous êtes agent immobilier salarié, vous savez que la formation ALUR de 42 heures tous les 3 ans n'est pas optionnelle. Ce qui l'est en revanche, c'est de la payer de votre poche. L'OPCO ATLAS existe précisément pour ça : prendre en charge tout ou partie du coût de vos formations professionnelles. Voici comment ça marche concrètement, sans jargon administratif inutile.</p>
-            
-            <h2>Ce qu'est ATLAS et pourquoi ça vous concerne</h2>
-            
-            <p>ATLAS est l'opérateur de compétences des services financiers, de l'assurance et de l'immobilier. Depuis la réforme de 2018 qui a restructuré les anciens OPCA en OPCO, ATLAS collecte les contributions formation des entreprises du secteur et les redistribue pour financer les formations de leurs salariés.</p>
-            
-            <p>Si vous travaillez dans une agence immobilière en tant que salarié, votre employeur cotise à ATLAS. Ce n'est pas négociable : la cotisation est obligatoire. Autrement dit, l'argent est déjà là. La question c'est juste de savoir comment y accéder.</p>
-            
-            <p>La formation ALUR ATLAS concerne tous les agents immobiliers salariés dont l'employeur relève des branches couvertes par cet OPCO. Les agents commerciaux indépendants (les non-salariés), eux, passent plutôt par la FIFPL. C'est une distinction importante, alors vérifiez bien votre statut avant d'entamer les démarches.</p>
-            
-            <h2>Qui peut obtenir un financement OPCO ATLAS ?</h2>
-            
-            <h3>Les conditions d'éligibilité</h3>
-            
-            <p><strong>Votre employeur doit cotiser à ATLAS.</strong> C'est le cas de la grande majorité des agences immobilières, des administrateurs de biens et des gestionnaires de copropriétés. En cas de doute, demandez simplement à votre service RH ou à votre employeur directement.</p>
-            
-            <p><strong>Vous devez être salarié.</strong> CDI, CDD, temps plein, temps partiel : peu importe. Ce qui compte, c'est que vous soyez en contrat de travail au moment de la formation.</p>
-            
-            <p><strong>La formation doit être éligible.</strong> Toutes les formations n'ont pas le même statut aux yeux d'ATLAS. Pour la formation ALUR, c'est généralement simple : si l'organisme est certifié Qualiopi (la certification qualité obligatoire depuis 2022), la formation peut être financée.</p>
-            
-            <h2>Quelles formations ALUR sont prises en charge ?</h2>
-            
-            <p>ATLAS peut financer vos heures ALUR via plusieurs dispositifs, selon la façon dont la formation est montée :</p>
-            
-            <p>Le <strong>Plan de Développement des Compétences (PDC)</strong> est le canal le plus courant pour les agents salariés. Votre employeur inscrit la formation dans son plan de formation annuel, fait la demande de prise en charge auprès d'ATLAS, et ATLAS rembourse directement l'organisme de formation (ou rembourse l'entreprise si elle a déjà réglé).</p>
-            
-            <p>Le <strong>Compte Personnel de Formation (CPF)</strong> est une autre option, plus individuelle. Vos heures CPF capitalisées peuvent financer tout ou partie de la formation. Mais attention : si votre solde CPF est insuffisant, vous pouvez demander un abondement, c'est-à-dire un complément de financement. ATLAS peut intervenir ici également, selon les accords de branche.</p>
-            
-            <p>La <strong>Pro-A</strong> (reconversion ou promotion par alternance) est moins fréquente pour les formations ALUR de base, mais elle peut s'appliquer dans certaines configurations, notamment pour des parcours plus longs incluant des certifications complémentaires.</p>
-            
-            <h2>Le processus de financement OPCO ATLAS, étape par étape</h2>
-            
-            <p>Le financement ne tombe pas automatiquement. Il faut suivre une procédure. Voici comment ça se passe dans la pratique.</p>
-            
-            <h3>Étape 1 : parlez-en à votre employeur</h3>
-            
-            <p>Tout commence là. La demande de prise en charge par ATLAS doit être initiée par l'entreprise, pas par le salarié. Signalez à votre responsable ou à votre service RH que vous avez besoin de valider des heures ALUR, et demandez-leur d'intégrer ça dans le plan de formation.</p>
-            
-            <p>Si vous êtes dans une petite agence où le patron s'occupe de tout, aidez-le à comprendre la démarche. Beaucoup de dirigeants de petites structures ne connaissent pas bien ATLAS et perdent des financements auxquels ils ont droit.</p>
-            
-            <h3>Étape 2 : choisissez un organisme de formation certifié Qualiopi</h3>
-            
-            <p>Pas n'importe quelle formation ne sera prise en charge. L'organisme doit être certifié Qualiopi. Vérifiez ce point avant de vous inscrire. Sur le site data.gouv.fr, vous pouvez consulter le registre public des organismes certifiés.</p>
-            
-            <p>Pour les heures ALUR, les thématiques autorisées sont encadrées par décret : droit immobilier, techniques de construction, développement durable, etc. Une formation qui ne porte pas sur ces sujets ne compte pas, même si elle est par ailleurs très bien.</p>
-            
-            <h3>Étape 3 : l'employeur dépose la demande auprès d'ATLAS</h3>
-            
-            <p>La demande de prise en charge se fait via l'espace en ligne d'ATLAS (atlas-competences.fr). L'employeur doit déposer le dossier <strong>avant le début de la formation</strong>. C'est un point critique. Si vous attendez la fin de la formation pour faire la demande, ATLAS peut refuser le financement.</p>
-            
-            <p>Le dossier comprend généralement : le devis ou la convention de formation, le programme détaillé, les informations sur le stagiaire et le coût total.</p>
-            
-            <h3>Étape 4 : suivez la formation et récupérez les justificatifs</h3>
-            
-            <p>Une fois la formation terminée, l'organisme de formation transmet une feuille de présence et une facture. ATLAS règle directement l'organisme dans la grande majorité des cas. Si l'entreprise a avancé les frais, elle reçoit le remboursement sous quelques semaines.</p>
-            
-            <h2>Les montants pris en charge par ATLAS</h2>
-            
-            <p>ATLAS ne finance pas nécessairement 100 % du coût. Les montants dépendent de plusieurs facteurs : la taille de l'entreprise, le solde disponible sur le compte de l'employeur chez ATLAS, et les priorités définies par les branches professionnelles.</p>
-            
-            <p>Pour les TPE et PME (moins de 50 salariés), les conditions sont souvent plus favorables. ATLAS dispose de fonds spécifiques pour soutenir les petites entreprises qui n'ont pas les ressources RH pour monter des dossiers complexes.</p>
-            
-            <p>À titre indicatif, une formation ALUR de 14 heures coûte en moyenne entre 350 et 700 euros selon les organismes. ATLAS peut couvrir tout ou partie de ce montant, selon le solde disponible. Dans de nombreux cas, pour les TPE, la prise en charge est totale.</p>
-            
-            <p>Pour connaître le montant exact auquel votre employeur peut prétendre, le mieux est de contacter directement ATLAS ou de consulter un conseiller formation. Les règles peuvent évoluer d'une année à l'autre en fonction des budgets disponibles.</p>
-            
-            <h2>Délais et points de vigilance</h2>
-            
-            <p>Quelques réalités pratiques à garder en tête :</p>
-            
-            <p>Les délais de remboursement varient. En général, comptez 4 à 8 semaines après la fin de la formation pour que le paiement soit effectué. Planifiez en conséquence, surtout en fin d'année où les dossiers s'accumulent.</p>
-            
-            <p>Les budgets ATLAS ne sont pas illimités. Si l'employeur tarde à déposer sa demande, certains fonds peuvent être épuisés. Mieux vaut anticiper et ne pas attendre le dernier trimestre pour faire les démarches.</p>
-            
-            <p>Enfin, si vous êtes dans une agence franchisée d'un réseau national, vérifiez si votre tête de réseau n'a pas déjà négocié des accords avec ATLAS. Certains grands réseaux ont des conventions cadres qui simplifient les démarches.</p>
-            
-            <h2>FAQ : financement formation ALUR ATLAS</h2>
-            
-            <div class="faq">
-                <div class="faq-item">
-                    <p><strong>Est-ce que tous les agents immobiliers salariés peuvent bénéficier d'ATLAS ?</strong><br>
-                    Oui, si leur employeur relève des branches couvertes par ATLAS. C'est le cas de la quasi-totalité des agences immobilières, cabinets d'administration de biens et syndics de copropriétés.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <p><strong>Faut-il être en CDI pour avoir droit au financement ?</strong><br>
-                    Non. Les salariés en CDD y ont aussi droit, sous certaines conditions. La durée du contrat et l'ancienneté peuvent influencer les dispositifs accessibles, mais le financement plan de formation reste ouvert.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <p><strong>Qui fait la demande de financement, le salarié ou l'employeur ?</strong><br>
-                    C'est l'employeur qui dépose la demande auprès d'ATLAS. Le salarié ne peut pas faire cette démarche seul. Si votre employeur n'est pas au courant de la procédure, montrez-lui ce guide.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <p><strong>La demande doit-elle être faite avant ou après la formation ?</strong><br>
-                    Avant. C'est obligatoire. ATLAS refuse systématiquement les demandes déposées après le début de la formation pour le dispositif Plan de Développement des Compétences.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <p><strong>Que se passe-t-il si ATLAS ne prend pas tout en charge ?</strong><br>
-                    Vous pouvez compléter avec votre CPF si votre solde est suffisant. Certains organismes proposent aussi des tarifs adaptés aux contraintes de financement partiel.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <p><strong>Les formations en ligne sont-elles prises en charge par ATLAS ?</strong><br>
-                    Oui, à condition que l'organisme soit certifié Qualiopi et que la formation soit déclarée en e-learning ou blended learning. Le format distanciel n'est pas un obstacle au financement.</p>
-                </div>
-            </div>
-            
-            <h2>Passez à l'action maintenant</h2>
-            
-            <p>Vous avez les clés pour comprendre le financement OPCO ATLAS. La prochaine étape concrète, c'est de choisir votre organisme de formation et de déclencher la procédure avec votre employeur le plus tôt possible.</p>
-            
-            <p>Les heures ALUR ne se valident pas toutes seules, et l'échéance pour le renouvellement de la carte professionnelle n'attend pas. Commencez par consulter les formations disponibles et vérifiez lesquelles correspondent à vos besoins.</p>
-        </main>
-        
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-box">
-                <h3>Prêt à financer votre formation ?</h3>
-                <p style="margin-bottom: 1rem; font-size: 0.95rem;">Consultez les formations disponibles et vérifiez votre éligibilité en quelques minutes.</p>
-                <a href="formulaires.html" class="cta-button">Demander une formation</a>
-            </div>
-            
-            <div class="sidebar-box">
-                <h3>À propos d'ALUR42</h3>
-                <p style="font-size: 0.9rem;">ALUR42 est un organisme de formation certifié Qualiopi spécialisé dans les formations ALUR pour les professionnels de l'immobilier.</p>
-                <div class="qualiopi-badge">✓ Certifié Qualiopi</div>
-            </div>
-        </aside>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-c">
+    <a href="../index.html" class="nav-brand">ALUR<span>42</span></a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../index.html#formations" class="nav-link">Formations</a>
+      <a href="../index.html#financement" class="nav-link">Financement</a>
+      <a href="../faq.html" class="nav-link">FAQ</a>
+      <a href="../blog.html" class="nav-link">Blog</a>
     </div>
+    <a href="../formulaires.html" class="nav-cta">Vérifier mon éligibilité</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../blog.html">Blog</a>
+      <span>/</span>
+      <span>Financement OPCO ATLAS</span>
+    </div>
+    <div class="article-badge">💡 Financement</div>
+    <h1>Comment financer sa formation ALUR avec l'OPCO ATLAS ?</h1>
+    <div class="article-meta">
+      <div class="meta-item">📅 Mars 2026</div>
+      <div class="meta-item">⏱️ 7 min de lecture</div>
+    </div>
+    <div class="article-intro">
+      Si vous êtes agent immobilier salarié, vous savez que la formation ALUR de 42 heures tous les 3 ans n'est pas optionnelle. Ce qui l'est en revanche, c'est de la payer de votre poche. L'OPCO ATLAS existe précisément pour ça : prendre en charge tout ou partie du coût de vos formations professionnelles.
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<div class="article-layout">
+  <article class="article-body">
+
+    <h2 id="what-is-atlas">Ce qu'est ATLAS et pourquoi ça vous concerne</h2>
     
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-in">
-            <div class="footer-col">
-                <h4>ALUR42</h4>
-                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Formation ALUR certifiée Qualiopi pour les professionnels de l'immobilier.</p>
-                <div class="qualiopi-badge">✓ Certifié Qualiopi</div>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <a href="index.html">Accueil</a>
-                <a href="blog.html">Blog</a>
-                <a href="formulaires.html">S'inscrire</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Espace client</h4>
-                <a href="espace-client.html">Mon compte</a>
-                <a href="espace-client.html">Mes formations</a>
-                <a href="espace-client.html">Mes attestations</a>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Contact & Légal</h4>
-                <a href="mentions-legales.html">Mentions légales</a>
-                <a href="cgu.html">CGU</a>
-                <a href="politique-confidentialite.html">Politique de confidentialité</a>
-                <p style="font-size: 0.85rem; margin-top: 1rem; color: #ccc;">contact@alur42.fr</p>
-            </div>
-        </div>
-        
-        <div class="footer-bot">
-            <p>&copy; 2026 ALUR42 | Organisme de formation certifié Qualiopi | Formation e-learning financée par l'OPCO</p>
-        </div>
-    </footer>
+    <p>ATLAS est l'opérateur de compétences des services financiers, de l'assurance et de l'immobilier. Depuis la réforme de 2018 qui a restructuré les anciens OPCA en OPCO, ATLAS collecte les contributions formation des entreprises du secteur et les redistribue pour financer les formations de leurs salariés.</p>
+    
+    <p>Si vous travaillez dans une agence immobilière en tant que salarié, votre employeur cotise à ATLAS. Ce n'est pas négociable : la cotisation est obligatoire. Autrement dit, l'argent est déjà là. La question c'est juste de savoir comment y accéder.</p>
+    
+    <p>La formation ALUR ATLAS concerne tous les agents immobiliers salariés dont l'employeur relève des branches couvertes par cet OPCO. Les agents commerciaux indépendants (les non-salariés), eux, passent plutôt par la FIFPL. C'est une distinction importante, alors vérifiez bien votre statut avant d'entamer les démarches.</p>
+
+    <h2 id="eligibility">Qui peut obtenir un financement OPCO ATLAS ?</h2>
+    
+    <h3>Les conditions d'éligibilité</h3>
+    
+    <p><strong>Votre employeur doit cotiser à ATLAS.</strong> C'est le cas de la grande majorité des agences immobilières, des administrateurs de biens et des gestionnaires de copropriétés. En cas de doute, demandez simplement à votre service RH ou à votre employeur directement.</p>
+    
+    <p><strong>Vous devez être salarié.</strong> CDI, CDD, temps plein, temps partiel : peu importe. Ce qui compte, c'est que vous soyez en contrat de travail au moment de la formation.</p>
+    
+    <p><strong>La formation doit être éligible.</strong> Toutes les formations n'ont pas le même statut aux yeux d'ATLAS. Pour la formation ALUR, c'est généralement simple : si l'organisme est certifié Qualiopi (la certification qualité obligatoire depuis 2022), la formation peut être financée.</p>
+
+    <h2 id="training-types">Quelles formations ALUR sont prises en charge ?</h2>
+    
+    <p>ATLAS peut financer vos heures ALUR via plusieurs dispositifs, selon la façon dont la formation est montée :</p>
+    
+    <p>Le <strong>Plan de Développement des Compétences (PDC)</strong> est le canal le plus courant pour les agents salariés. Votre employeur inscrit la formation dans son plan de formation annuel, fait la demande de prise en charge auprès d'ATLAS, et ATLAS rembourse directement l'organisme de formation (ou rembourse l'entreprise si elle a déjà réglé).</p>
+    
+    <p>Le <strong>Compte Personnel de Formation (CPF)</strong> est une autre option, plus individuelle. Vos heures CPF capitalisées peuvent financer tout ou partie de la formation. Mais attention : si votre solde CPF est insuffisant, vous pouvez demander un abondement, c'est-à-dire un complément de financement. ATLAS peut intervenir ici également, selon les accords de branche.</p>
+    
+    <p>La <strong>Pro-A</strong> (reconversion ou promotion par alternance) est moins fréquente pour les formations ALUR de base, mais elle peut s'appliquer dans certaines configurations, notamment pour des parcours plus longs incluant des certifications complémentaires.</p>
+
+    <h2 id="process">Le processus de financement OPCO ATLAS, étape par étape</h2>
+    
+    <p>Le financement ne tombe pas automatiquement. Il faut suivre une procédure. Voici comment ça se passe dans la pratique.</p>
+    
+    <h3>Étape 1 : parlez-en à votre employeur</h3>
+    
+    <p>Tout commence là. La demande de prise en charge par ATLAS doit être initiée par l'entreprise, pas par le salarié. Signalez à votre responsable ou à votre service RH que vous avez besoin de valider des heures ALUR, et demandez-leur d'intégrer ça dans le plan de formation.</p>
+    
+    <p>Si vous êtes dans une petite agence où le patron s'occupe de tout, aidez-le à comprendre la démarche. Beaucoup de dirigeants de petites structures ne connaissent pas bien ATLAS et perdent des financements auxquels ils ont droit.</p>
+    
+    <h3>Étape 2 : choisissez un organisme de formation certifié Qualiopi</h3>
+    
+    <p>Pas n'importe quelle formation ne sera prise en charge. L'organisme doit être certifié Qualiopi. Vérifiez ce point avant de vous inscrire. Sur le site data.gouv.fr, vous pouvez consulter le registre public des organismes certifiés.</p>
+    
+    <p>Pour les heures ALUR, les thématiques autorisées sont encadrées par décret : droit immobilier, techniques de construction, développement durable, etc. Une formation qui ne porte pas sur ces sujets ne compte pas, même si elle est par ailleurs très bien.</p>
+    
+    <h3>Étape 3 : l'employeur dépose la demande auprès d'ATLAS</h3>
+    
+    <p>La demande de prise en charge se fait via l'espace en ligne d'ATLAS (atlas-competences.fr). L'employeur doit déposer le dossier <strong>avant le début de la formation</strong>. C'est un point critique. Si vous attendez la fin de la formation pour faire la demande, ATLAS peut refuser le financement.</p>
+    
+    <p>Le dossier comprend généralement : le devis ou la convention de formation, le programme détaillé, les informations sur le stagiaire et le coût total.</p>
+    
+    <h3>Étape 4 : suivez la formation et récupérez les justificatifs</h3>
+    
+    <p>Une fois la formation terminée, l'organisme de formation transmet une feuille de présence et une facture. ATLAS règle directement l'organisme dans la grande majorité des cas. Si l'entreprise a avancé les frais, elle reçoit le remboursement sous quelques semaines.</p>
+
+    <h2 id="amounts">Les montants pris en charge par ATLAS</h2>
+    
+    <p>ATLAS ne finance pas nécessairement 100% du coût. Les montants dépendent de plusieurs facteurs : la taille de l'entreprise, le solde disponible sur le compte de l'employeur chez ATLAS, et les priorités définies par les branches professionnelles.</p>
+    
+    <p>Pour les TPE et PME (moins de 50 salariés), les conditions sont souvent plus favorables. ATLAS dispose de fonds spécifiques pour soutenir les petites entreprises qui n'ont pas les ressources RH pour monter des dossiers complexes.</p>
+    
+    <p>À titre indicatif, une formation ALUR de 14 heures coûte en moyenne entre 350 et 700 euros selon les organismes. ATLAS peut couvrir tout ou partie de ce montant, selon le solde disponible. Dans de nombreux cas, pour les TPE, la prise en charge est totale.</p>
+    
+    <p>Pour connaître le montant exact auquel votre employeur peut prétendre, le mieux est de contacter directement ATLAS ou de consulter un conseiller formation. Les règles peuvent évoluer d'une année à l'autre en fonction des budgets disponibles.</p>
+
+    <h2 id="timelines">Délais et points de vigilance</h2>
+    
+    <p>Quelques réalités pratiques à garder en tête :</p>
+    
+    <p>Les délais de remboursement varient. En général, comptez 4 à 8 semaines après la fin de la formation pour que le paiement soit effectué. Planifiez en conséquence, surtout en fin d'année où les dossiers s'accumulent.</p>
+    
+    <p>Les budgets ATLAS ne sont pas illimités. Si l'employeur tarde à déposer sa demande, certains fonds peuvent être épuisés. Mieux vaut anticiper et ne pas attendre le dernier trimestre pour faire les démarches.</p>
+    
+    <p>Enfin, si vous êtes dans une agence franchisée d'un réseau national, vérifiez si votre tête de réseau n'a pas déjà négocié des accords avec ATLAS. Certains grands réseaux ont des conventions cadres qui simplifient les démarches.</p>
+
+    <h2 id="faq">FAQ : financement formation ALUR ATLAS</h2>
+    
+    <div class="highlight-box teal">
+      <div class="box-title">Est-ce que tous les agents immobiliers salariés peuvent bénéficier d'ATLAS ?</div>
+      <p>Oui, si leur employeur relève des branches couvertes par ATLAS. C'est le cas de la quasi-totalité des agences immobilières, cabinets d'administration de biens et syndics de copropriétés.</p>
+    </div>
+
+    <div class="highlight-box teal">
+      <div class="box-title">Faut-il être en CDI pour avoir droit au financement ?</div>
+      <p>Non. Les salariés en CDD y ont aussi droit, sous certaines conditions. La durée du contrat et l'ancienneté peuvent influencer les dispositifs accessibles, mais le financement plan de formation reste ouvert.</p>
+    </div>
+
+    <div class="highlight-box teal">
+      <div class="box-title">Qui fait la demande de financement, le salarié ou l'employeur ?</div>
+      <p>C'est l'employeur qui dépose la demande auprès d'ATLAS. Le salarié ne peut pas faire cette démarche seul. Si votre employeur n'est pas au courant de la procédure, montrez-lui ce guide.</p>
+    </div>
+
+    <div class="highlight-box teal">
+      <div class="box-title">La demande doit-elle être faite avant ou après la formation ?</div>
+      <p>Avant. C'est obligatoire. ATLAS refuse systématiquement les demandes déposées après le début de la formation pour le dispositif Plan de Développement des Compétences.</p>
+    </div>
+
+    <div class="highlight-box teal">
+      <div class="box-title">Que se passe-t-il si ATLAS ne prend pas tout en charge ?</div>
+      <p>Vous pouvez compléter avec votre CPF si votre solde est suffisant. Certains organismes proposent aussi des tarifs adaptés aux contraintes de financement partiel.</p>
+    </div>
+
+    <div class="highlight-box teal">
+      <div class="box-title">Les formations en ligne sont-elles prises en charge par ATLAS ?</div>
+      <p>Oui, à condition que l'organisme soit certifié Qualiopi et que la formation soit déclarée en e-learning ou blended learning. Le format distanciel n'est pas un obstacle au financement.</p>
+    </div>
+
+    <h2 id="action">Passez à l'action maintenant</h2>
+    
+    <p>Vous avez les clés pour comprendre le financement OPCO ATLAS. La prochaine étape concrète, c'est de choisir votre organisme de formation et de déclencher la procédure avec votre employeur le plus tôt possible.</p>
+    
+    <p>Les heures ALUR ne se valident pas toutes seules, et l'échéance pour le renouvellement de la carte professionnelle n'attend pas. Commencez par consulter les formations disponibles et vérifiez lesquelles correspondent à vos besoins.</p>
+
+    <!-- TAGS -->
+    <div class="article-tags">
+      <span class="tag">Formation ALUR</span>
+      <span class="tag">OPCO ATLAS</span>
+      <span class="tag">Financement</span>
+      <span class="tag">Agent immobilier</span>
+      <span class="tag">Salarié</span>
+      <span class="tag">Qualiopi</span>
+      <span class="tag">Carte professionnelle</span>
+      <span class="tag">Formation continue</span>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">📋 Sommaire</div>
+      <ul class="toc-list">
+        <li><a href="#what-is-atlas">Ce qu'est ATLAS</a></li>
+        <li><a href="#eligibility">Conditions d'éligibilité</a></li>
+        <li><a href="#training-types">Formations prises en charge</a></li>
+        <li><a href="#process">Le processus complet</a></li>
+        <li><a href="#amounts">Montants de prise en charge</a></li>
+        <li><a href="#timelines">Délais et vigilance</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#action">Passer à l'action</a></li>
+      </ul>
+    </div>
+
+    <div class="cta-card">
+      <div class="cta-emoji">🎓</div>
+      <h3>Validez vos 42h à 0€</h3>
+      <p>Formations certifiées Qualiopi, 100% en ligne, financement OPCO ATLAS géré pour vous.</p>
+      <a href="../formulaires.html" class="btn">Démarrer ma formation →</a>
+      <div class="cta-note">⚡ Dossier OPCO géré pour vous</div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <h2>Prêt à valider vos 42h de formation ?</h2>
+  <p>Nos formations ALUR sont certifiées Qualiopi et 100% finançables par votre OPCO ATLAS. Commencez aujourd'hui, sans avance de fonds.</p>
+  <a href="../formulaires.html" class="btn-cta">Démarrer ma formation gratuite →</a>
+  <div class="cta-sub">✓ Dossier OPCO géré pour vous · ✓ Attestation Qualiopi · ✓ 100% en ligne</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-brand">
+      <img src="https://assets.hncgroupe.fr/alur42/logo-alur42.png" class="f-logo" alt="Alur 42">
+      <p>Formation ALUR 42h certifiée Qualiopi. Remboursée par votre OPCO. Attestation officielle pour le renouvellement de votre carte professionnelle.</p>
+      <img src="https://assets.hncgroupe.fr/alur42/LogoQualiopi-300dpi-Avec-Marianne.png" alt="Qualiopi" class="f-quali">
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Navigation</div>
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html#formations">Formations</a>
+      <a href="../index.html#financement">Financement</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Espace client</div>
+      <a href="../formulaires.html">Vérifier mon éligibilité</a>
+      <a href="../dossier-opco.html">Formulaire de prise en charge</a>
+      <a href="../blog.html">Blog</a>
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Contact &amp; Légal</div>
+      <a href="mailto:contact@alur42.fr">contact@alur42.fr</a>
+      <a href="../contact.html">Contact</a>
+      <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,.3);line-height:1.9">
+        <p>Certifié Qualiopi</p>
+        <p>Médiateur : AME CONSO</p>
+        <p>197 Bd Saint-Germain - 75007 Paris</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot"><div class="footer-bot-in">
+    <span>© 2026 ALUR42.fr - Tous droits réservés</span>
+    <span>Organisme certifié Qualiopi</span>
+  </div></div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
 </body>
 </html>
