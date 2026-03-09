@@ -170,8 +170,6 @@ img{max-width:100%;display:block}
 
 /* ═══ FORMATIONS ═══ */
 .fc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:900px){.fc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:580px){.fc-grid{grid-template-columns:1fr}}
 .fc{background:#fff;border:1px solid var(--border);border-radius:var(--r4);padding:26px 22px;transition:all .28s;position:relative;overflow:hidden}
 .fc:hover{transform:translateY(-5px);box-shadow:var(--s3);border-color:var(--teal)}
 .fc-top{background:linear-gradient(145deg,#0D2B5E,#1B3A6B)!important;border:2px solid var(--teal)!important;color:#fff!important}
@@ -560,9 +558,86 @@ h1,h2,h3,h4{letter-spacing:-.3px}
 
 /* ── FORMATIONS (fc-grid) ── */
 @media(max-width:900px){.fc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){
-  .fc-grid{grid-template-columns:1fr}
-  .fc{padding:22px 18px}
+
+/* Mobile : 1 colonne propre, cards empilées */
+@media(max-width:580px){
+  .fc-grid{grid-template-columns:1fr!important;gap:12px}
+
+  .fc{
+    flex-direction:column!important;
+    padding:20px 18px!important;
+    border-radius:16px!important;
+  }
+
+  /* Header de la card : icône inline avec titre */
+  .fc-icon{
+    font-size:28px;
+    margin-bottom:0;
+    width:44px;height:44px;
+    background:var(--bgalt);
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    float:left;
+    margin-right:12px;
+    margin-bottom:4px;
+  }
+  .fc-ribbon{
+    display:inline-block;
+    margin-bottom:10px;
+    font-size:10px;
+    clear:both;
+  }
+  .fc-h3{font-size:15px;font-weight:700;margin-bottom:6px}
+  .fc-p{
+    font-size:13px;
+    line-height:1.65;
+    color:var(--gray);
+    margin-bottom:12px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--border);
+    clear:both;
+  }
+
+  /* Ligne prix + toggles côte à côte */
+  .fc-toggle-wrap{
+    display:flex;gap:6px;
+    margin:0 0 8px;
+    flex-wrap:nowrap;
+  }
+  .fc-toggle{padding:6px 16px;font-size:13px;border-radius:20px}
+
+  .fc-price{
+    display:flex;align-items:baseline;gap:8px;
+    margin:0 0 8px;
+  }
+  .fc-price-main{font-size:30px;font-weight:900}
+  .fc-price-old{font-size:13px}
+
+  .fc-price-opco{
+    font-size:11px;
+    padding:4px 11px;
+    margin-bottom:14px;
+  }
+
+  /* Spacer : collapse */
+  .fc-spacer{display:none!important}
+
+  /* CTA : pleine largeur, bien visible */
+  .fc-btn{
+    margin-top:0!important;
+    width:100%!important;
+    display:block!important;
+    text-align:center!important;
+    padding:13px!important;
+    font-size:14px!important;
+    border-radius:10px!important;
+  }
+
+  /* Card featured : forcer fond navy */
+  .fc.fc-top{background:linear-gradient(145deg,#0D2B5E,#1B3A6B)!important}
+  .fc.fc-top .fc-icon{background:rgba(255,255,255,.12)!important}
+  .fc.fc-top .fc-p{border-bottom-color:rgba(255,255,255,.12)!important}
 }
 
 /* ── OPCO CARDS ── */
