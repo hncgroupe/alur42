@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" type="image/png" href="https://assets.hncgroupe.fr/alur42/FAVICON_ALUR_42.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{META_TITRE}} | ALUR42.fr</title>
+  <meta name="description" content="{{META_DESC}}">
+  <meta name="robots" content="index, follow">
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{META_TITRE}}">
+  <meta property="og:description" content="{{META_DESC}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alur42.fr/blog/{{SLUG}}">
+  <!-- Schema.org Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{META_TITRE}}",
+    "datePublished": "{{DATE_ISO}}",
+    "dateModified": "{{DATE_ISO}}",
+    "author": {"@type": "Organization", "name": "ALUR42.fr"},
+    "publisher": {"@type": "Organization", "name": "ALUR42.fr"},
+    "description": "{{META_DESC}}"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:   #1B3A6B;
+      --navy2:  #142d55;
+      --teal:   #2DB8A0;
+      --teal2:  #22a38d;
+      --green:  #3EC6A0;
+      --cream:  #F5F8FC;
+      --white:  #FFFFFF;
+      --text:   #1a2840;
+      --gray:   #5a6b82;
+      --gray2:  #8fa0b5;
+      --border: #dde6f0;
+      --bgalt:  #EEF3F9;
+      --gold:   #F5A623;
+      --ok:     #16A34A;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:15px}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    /* ═══ NAVBAR ═══ */
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav-c{max-width:1180px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;gap:8px}
+    .nav-brand{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+    .nav-brand span{color:var(--teal)}
+    .nav-links{display:flex;align-items:center;gap:2px;margin:0 auto}
+    .nav-link{padding:8px 13px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--gray);transition:all .18s}
+    .nav-link:hover{color:var(--navy);background:var(--bgalt)}
+    .nav-cta{display:inline-block;padding:10px 20px;border-radius:8px;background:var(--teal);color:#fff;font-size:13px;font-weight:700;transition:all .2s;white-space:nowrap}
+    .nav-cta:hover{background:var(--teal2);transform:translateY(-1px)}
+    @media(max-width:768px){.nav-links{display:none}}
+
+    /* ═══ HERO ARTICLE ═══ */
+    .article-hero{padding:120px 24px 60px;background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);position:relative;overflow:hidden}
+    .article-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .article-hero .container{max-width:800px;margin:0 auto;position:relative;z-index:1}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.6);margin-bottom:20px}
+    .breadcrumb a{color:rgba(255,255,255,.6);transition:color .2s}
+    .breadcrumb a:hover{color:#fff}
+    .breadcrumb span{color:rgba(255,255,255,.4)}
+    .article-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(45,184,160,.2);border:1px solid rgba(45,184,160,.4);color:var(--teal);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:20px}
+    .article-hero h1{font-size:clamp(28px,5vw,46px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:20px;letter-spacing:-.5px}
+    .article-hero h1 em{color:var(--teal);font-style:normal}
+    .article-meta{display:flex;align-items:center;flex-wrap:wrap;gap:16px;color:rgba(255,255,255,.65);font-size:13px}
+    .meta-item{display:flex;align-items:center;gap:6px}
+    .meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3)}
+    .article-intro{margin-top:28px;padding:20px 24px;background:rgba(255,255,255,.08);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;color:rgba(255,255,255,.9);font-size:16px;line-height:1.7}
+
+    /* ═══ LAYOUT ═══ */
+    .article-layout{max-width:1180px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start}
+    @media(max-width:900px){.article-layout{grid-template-columns:1fr;gap:40px}}
+
+    /* ═══ CONTENT ═══ */
+    .article-body h2{font-size:24px;font-weight:800;color:var(--navy);margin:44px 0 16px;padding-top:44px;border-top:1px solid var(--border);letter-spacing:-.3px}
+    .article-body h2:first-child{margin-top:0;padding-top:0;border-top:none}
+    .article-body h3{font-size:18px;font-weight:700;color:var(--navy);margin:28px 0 12px}
+    .article-body p{color:#2d3f56;font-size:15.5px;line-height:1.8;margin-bottom:18px}
+    .article-body strong{color:var(--navy);font-weight:700}
+
+    /* Highlight box */
+    .highlight-box{background:linear-gradient(135deg,#e8f4ff 0%,#f0faff 100%);border:1px solid #c0daf7;border-left:4px solid var(--navy);border-radius:0 12px 12px 0;padding:20px 24px;margin:24px 0}
+    .highlight-box.teal{background:linear-gradient(135deg,#e6faf7 0%,#f0fdf9 100%);border-color:#a8e8da;border-left-color:var(--teal)}
+    .highlight-box.gold{background:linear-gradient(135deg,#fffbeb 0%,#fef9e7 100%);border-color:#fde68a;border-left-color:var(--gold)}
+    .highlight-box.danger{background:#fff5f5;border-color:#fecaca;border-left-color:#ef4444}
+    .highlight-box p{margin-bottom:0}
+    .highlight-box .box-title{font-weight:700;font-size:14px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+
+    /* Timeline */
+    .timeline{margin:28px 0;display:flex;flex-direction:column;gap:0}
+    .timeline-item{display:flex;gap:20px;position:relative}
+    .timeline-item:not(:last-child)::before{content:'';position:absolute;left:19px;top:40px;bottom:-4px;width:2px;background:var(--border)}
+    .tl-dot{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;margin-top:4px;z-index:1}
+    .tl-dot.teal{background:var(--teal)}
+    .tl-content{padding:4px 0 28px}
+    .tl-year{font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+    .tl-title{font-weight:700;color:var(--navy);font-size:15px;margin-bottom:6px}
+    .tl-text{color:var(--gray);font-size:14px;line-height:1.6}
+
+    /* Stats grid */
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+    @media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+    .stat-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 16px;text-align:center;box-shadow:0 2px 8px rgba(27,58,107,.06)}
+    .stat-num{font-size:32px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:6px}
+    .stat-num span{font-size:18px}
+    .stat-label{font-size:12.5px;color:var(--gray);line-height:1.4}
+
+    /* Tableau */
+    .table-wrap{overflow-x:auto;margin:24px 0;border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(27,58,107,.06)}
+    table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
+    thead{background:var(--navy)}
+    thead th{color:#fff;padding:14px 16px;text-align:left;font-weight:600;font-size:13px}
+    tbody tr:nth-child(even){background:var(--cream)}
+    tbody td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--text)}
+    tbody tr:last-child td{border-bottom:none}
+    .badge-ok{display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#16a34a;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+    .badge-warn{background:#fef3c7;color:#d97706;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+    .badge-no{background:#fee2e2;color:#dc2626;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+
+    /* ═══ SIDEBAR ═══ */
+    .sidebar{position:sticky;top:88px}
+    .sidebar-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(27,58,107,.08)}
+    .sidebar-title{font-size:13px;font-weight:700;color:var(--gray2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:16px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+    .toc-list li a{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:13.5px;color:var(--gray);transition:all .18s}
+    .toc-list li a::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background .18s}
+    .toc-list li a:hover{color:var(--navy);background:var(--bgalt)}
+    .toc-list li a:hover::before{background:var(--teal)}
+
+    /* CTA sidebar */
+    .cta-card{background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);border-radius:16px;padding:24px;color:#fff;text-align:center}
+    .cta-card .cta-emoji{font-size:36px;margin-bottom:12px}
+    .cta-card h3{font-size:17px;font-weight:800;margin-bottom:8px;line-height:1.3}
+    .cta-card p{font-size:13px;color:rgba(255,255,255,.75);margin-bottom:20px;line-height:1.6}
+    .cta-card .btn{display:block;background:var(--teal);color:#fff;font-weight:700;font-size:14px;padding:13px 20px;border-radius:10px;transition:all .2s;margin-bottom:10px}
+    .cta-card .btn:hover{background:var(--teal2);transform:translateY(-1px)}
+    .cta-card .cta-note{font-size:11.5px;color:rgba(255,255,255,.5)}
+
+    /* Tags */
+    .article-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:44px;padding-top:28px;border-top:1px solid var(--border)}
+    .tag{display:inline-block;background:var(--bgalt);color:var(--gray);padding:5px 14px;border-radius:20px;font-size:12.5px;font-weight:500;border:1px solid var(--border)}
+
+    /* Footer CTA */
+    .footer-cta{background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);padding:60px 24px;text-align:center;margin-top:60px}
+    .footer-cta h2{font-size:clamp(24px,4vw,36px);font-weight:800;color:#fff;margin-bottom:12px}
+    .footer-cta p{color:rgba(255,255,255,.75);font-size:16px;margin-bottom:28px;max-width:540px;margin-left:auto;margin-right:auto}
+    .footer-cta .btn-cta{display:inline-block;background:var(--teal);color:#fff;font-weight:700;font-size:16px;padding:16px 36px;border-radius:12px;transition:all .2s}
+    .footer-cta .btn-cta:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,184,160,.4)}
+    .footer-cta .cta-sub{margin-top:14px;font-size:13px;color:rgba(255,255,255,.5)}
+
+    /* Footer */
+    footer{background:var(--navy2);padding:24px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.4)}
+  </style>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-c">
+    <a href="../index.html" class="nav-brand"><img src="https://assets.hncgroupe.fr/alur42/logo-alur42.png" class="nav-logo" alt="Alur 42"></a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../index.html#formations" class="nav-link">Formations</a>
+      <a href="../index.html#financement" class="nav-link">Financement</a>
+      <a href="../faq.html" class="nav-link">FAQ</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </div>
+    <a href="../formulaires.html" class="nav-cta">Vérifier mon éligibilité</a>
+    <button class="nav-burger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="nav-mob">
+    <a href="../index.html">Accueil</a>
+    <a href="../index.html#formations">Formations</a>
+    <a href="../index.html#financement">Financement</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../formulaires.html" class="nav-cta" style="display:block;text-align:center;margin-top:8px">Vérifier mon éligibilité</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Accueil</a>
+      <span>›</span>
+      <a href="../blog.html">Blog</a>
+      <span>›</span>
+      <span>{{BREADCRUMB_TITRE}}</span>
+    </div>
+    <div class="article-badge">{{EMOJI_BADGE}} {{LABEL_BADGE}}</div>
+    <h1>{{TITRE_H1}}</h1>
+    <div class="article-meta">
+      <div class="meta-item">📅 {{DATE_AFFICHAGE}}</div>
+      <div class="meta-dot"></div>
+      <div class="meta-item">⏱️ {{DUREE_LECTURE}}</div>
+      <div class="meta-dot"></div>
+      <div class="meta-item">👥 {{AUDIENCE}}</div>
+    </div>
+    <div class="article-intro">
+      <strong>En résumé :</strong> {{INTRO_RESUME}}
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT PRINCIPAL -->
+<div class="article-layout">
+
+  <!-- CONTENU -->
+  <article class="article-body">
+
+    <!-- STATS (optionnel - supprimer le bloc si inutile) -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">{{STAT1_NUM}}<span>{{STAT1_UNITE}}</span></div>
+        <div class="stat-label">{{STAT1_LABEL}}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">{{STAT2_NUM}}<span>{{STAT2_UNITE}}</span></div>
+        <div class="stat-label">{{STAT2_LABEL}}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">{{STAT3_NUM}}<span>{{STAT3_UNITE}}</span></div>
+        <div class="stat-label">{{STAT3_LABEL}}</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         CONTENU DE L'ARTICLE ICI
+         Utiliser uniquement ces balises :
+         <h2 id="ancre">Titre section</h2>
+         <h3>Sous-titre</h3>
+         <p>Paragraphe</p>
+         <strong>Texte en gras</strong>
+         <div class="highlight-box">...</div>
+         <div class="highlight-box teal">...</div>
+         <div class="highlight-box gold">...</div>
+         <div class="highlight-box danger">...</div>
+         <div class="table-wrap"><table>...</table></div>
+         <div class="timeline">...</div>
+         <div class="stats-grid">...</div>
+    ══════════════════════════════════════ -->
+
+    {{CONTENU_ARTICLE}}
+
+    <!-- TAGS -->
+    <div class="article-tags">
+      {{TAGS}}
+      <!-- Exemple : <span class="tag">Loi ALUR</span> -->
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">📋 Sommaire</div>
+      <ul class="toc-list">
+        {{SOMMAIRE}}
+        <!-- Exemple : <li><a href="#ancre">1. Titre section</a></li> -->
+      </ul>
+    </div>
+
+    <div class="cta-card">
+      <div class="cta-emoji">🎓</div>
+      <h3>Validez vos 42h à 0€</h3>
+      <p>Formations certifiées Qualiopi, 100% en ligne, financement OPCO inclus.</p>
+      <a href="../formulaires.html" class="btn">Démarrer ma formation →</a>
+      <div class="cta-note">⚡ Dossier OPCO géré pour vous</div>
+    </div>
+
+    <div class="sidebar-card" style="background:linear-gradient(135deg,#fffbeb,#fef9e7);border-color:#fde68a">
+      <div class="sidebar-title" style="color:#92400e">⚠️ Vérifiez votre échéance</div>
+      <p style="font-size:13.5px;color:#78350f;line-height:1.6;margin-bottom:14px">La date d'expiration de votre carte est indiquée sur le document remis par la CCI. Ne la laissez pas expirer sans vos 42h.</p>
+      <a href="../contact.html" style="display:block;background:#d97706;color:#fff;text-align:center;font-weight:700;font-size:13px;padding:11px 16px;border-radius:8px">Vérifier mon éligibilité →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <div>
+    <h2>Prêt à valider vos 42h de formation ?</h2>
+    <p>Nos formations ALUR sont certifiées Qualiopi et 100% finançables par votre OPCO. Commencez aujourd'hui, sans avance de fonds.</p>
+    <a href="../formulaires.html" class="btn-cta">Démarrer ma formation gratuite →</a>
+    <div class="cta-sub">✓ Dossier OPCO géré pour vous · ✓ Attestation Qualiopi · ✓ 100% en ligne</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-brand">
+      <img src="https://assets.hncgroupe.fr/alur42/logo-alur42.png" class="f-logo" alt="Alur 42">
+      <p>Formation ALUR 42h certifiée Qualiopi. Remboursée par votre OPCO. Attestation officielle pour le renouvellement de votre carte professionnelle.</p>
+      <img src="https://assets.hncgroupe.fr/alur42/LogoQualiopi-300dpi-Avec-Marianne.png" alt="Qualiopi" class="f-quali">
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Navigation</div>
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html#formations">Formations</a>
+      <a href="../index.html#financement">Financement</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Espace client</div>
+      <a href="../formulaires.html">Vérifier mon éligibilité</a>
+      <a href="../dossier-opco.html">Formulaire de prise en charge</a>
+      <a href="../blog.html">Blog</a>
+    </div>
+    <div class="footer-col">
+      <div class="f-col-t">Contact &amp; Légal</div>
+      <a href="mailto:contact@alur42.fr">contact@alur42.fr</a>
+      <a href="../contact.html">Contact</a>
+      <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,.3);line-height:1.9">
+        <p>Certifié Qualiopi</p>
+        <p>Médiateur : AME CONSO</p>
+        <p>197 Bd Saint-Germain - 75007 Paris</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot"><div class="footer-bot-in">
+    <span>© 2026 ALUR42.fr - Tous droits réservés</span>
+    <span>Organisme certifié Qualiopi</span>
+  </div></div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  function toggleNav(){document.getElementById('nav-mob').classList.toggle('open')}
+
+  // TOC active highlight
+  const headings = document.querySelectorAll('h2[id]');
+  const links = document.querySelectorAll('.toc-list a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    headings.forEach(h => { if (window.scrollY >= h.offsetTop - 120) current = h.id; });
+    links.forEach(l => {
+      l.style.color = l.getAttribute('href') === '#'+current ? 'var(--navy)' : '';
+      l.style.background = l.getAttribute('href') === '#'+current ? 'var(--bgalt)' : '';
+    });
+  });
+</script>
+
+<script src="../main.js"></script>
+<script src="//code.tidio.co/c1ejshrpgmr4rksi41iewwgdolkqsm4u.js"></script>
+</body>
+</html>
