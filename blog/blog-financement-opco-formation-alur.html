@@ -7,9 +7,12 @@
   <title>Comment financer sa formation ALUR avec l'OPCO ATLAS ? | ALUR42.fr</title>
   <meta name="description" content="Guide complet : financer votre formation ALUR obligatoire via l'OPCO ATLAS. Éligibilité, processus, délais et montants de prise en charge.">
   <meta name="robots" content="index, follow">
+  <!-- Open Graph -->
   <meta property="og:title" content="Comment financer sa formation ALUR avec l'OPCO ATLAS ?">
   <meta property="og:description" content="Guide complet pour les agents immobiliers salariés : comprendre ATLAS, les conditions d'éligibilité et les étapes de financement.">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alur42.fr/blog/financement-opco-formation-alur">
+  <!-- Schema.org Article -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,6 +54,7 @@
     .navbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
     .nav-c{max-width:1180px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;gap:8px}
     .nav-brand{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+    .nav-brand span{color:var(--teal)}
     .nav-links{display:flex;align-items:center;gap:2px;margin:0 auto}
     .nav-link{padding:8px 13px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--gray);transition:all .18s}
     .nav-link:hover{color:var(--navy);background:var(--bgalt)}
@@ -68,8 +72,10 @@
     .breadcrumb span{color:rgba(255,255,255,.4)}
     .article-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(45,184,160,.2);border:1px solid rgba(45,184,160,.4);color:var(--teal);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:20px}
     .article-hero h1{font-size:clamp(28px,5vw,46px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:20px;letter-spacing:-.5px}
+    .article-hero h1 em{color:var(--teal);font-style:normal}
     .article-meta{display:flex;align-items:center;flex-wrap:wrap;gap:16px;color:rgba(255,255,255,.65);font-size:13px}
     .meta-item{display:flex;align-items:center;gap:6px}
+    .meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3)}
     .article-intro{margin-top:28px;padding:20px 24px;background:rgba(255,255,255,.08);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;color:rgba(255,255,255,.9);font-size:16px;line-height:1.7}
 
     /* ═══ LAYOUT ═══ */
@@ -82,82 +88,84 @@
     .article-body h3{font-size:18px;font-weight:700;color:var(--navy);margin:28px 0 12px}
     .article-body p{color:#2d3f56;font-size:15.5px;line-height:1.8;margin-bottom:18px}
     .article-body strong{color:var(--navy);font-weight:700}
-    .article-body ul{margin:16px 0 18px 20px;display:flex;flex-direction:column;gap:8px}
-    .article-body li{color:#2d3f56;font-size:15.5px;line-height:1.7}
 
     /* Highlight box */
     .highlight-box{background:linear-gradient(135deg,#e8f4ff 0%,#f0faff 100%);border:1px solid #c0daf7;border-left:4px solid var(--navy);border-radius:0 12px 12px 0;padding:20px 24px;margin:24px 0}
     .highlight-box.teal{background:linear-gradient(135deg,#e6faf7 0%,#f0fdf9 100%);border-color:#a8e8da;border-left-color:var(--teal)}
     .highlight-box.gold{background:linear-gradient(135deg,#fffbeb 0%,#fef9e7 100%);border-color:#fde68a;border-left-color:var(--gold)}
+    .highlight-box.danger{background:#fff5f5;border-color:#fecaca;border-left-color:#ef4444}
     .highlight-box p{margin-bottom:0}
     .highlight-box .box-title{font-weight:700;font-size:14px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 
-    /* Table */
-    .table-wrap{overflow-x:auto;margin:24px 0}
-    table{width:100%;border-collapse:collapse;font-size:14px}
-    table th{background:var(--bgalt);color:var(--navy);font-weight:700;padding:14px 16px;text-align:left;border:1px solid var(--border)}
-    table td{padding:14px 16px;border:1px solid var(--border)}
-    table tr:hover{background:#f5f8fc}
+    /* Tableau */
+    .table-wrap{overflow-x:auto;margin:24px 0;border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(27,58,107,.06)}
+    table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
+    thead{background:var(--navy)}
+    thead th{color:#fff;padding:14px 16px;text-align:left;font-weight:600;font-size:13px}
+    tbody tr:nth-child(even){background:var(--cream)}
+    tbody td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--text)}
+    tbody tr:last-child td{border-bottom:none}
+    .badge-ok{display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#16a34a;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+    .badge-warn{background:#fef3c7;color:#d97706;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+
+    /* ═══ SIDEBAR ═══ */
+    .sidebar{position:sticky;top:88px}
+    .sidebar-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(27,58,107,.08)}
+    .sidebar-title{font-size:13px;font-weight:700;color:var(--gray2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:16px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+    .toc-list li a{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:13.5px;color:var(--gray);transition:all .18s}
+    .toc-list li a::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background .18s}
+    .toc-list li a:hover{color:var(--navy);background:var(--bgalt)}
+    .toc-list li a:hover::before{background:var(--teal)}
+
+    /* CTA sidebar */
+    .cta-card{background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);border-radius:16px;padding:24px;color:#fff;text-align:center}
+    .cta-card .cta-emoji{font-size:36px;margin-bottom:12px}
+    .cta-card h3{font-size:17px;font-weight:800;margin-bottom:8px;line-height:1.3}
+    .cta-card p{font-size:13px;color:rgba(255,255,255,.75);margin-bottom:20px;line-height:1.6}
+    .cta-card .btn{display:block;background:var(--teal);color:#fff;font-weight:700;font-size:14px;padding:13px 20px;border-radius:10px;transition:all .2s;margin-bottom:10px}
+    .cta-card .btn:hover{background:var(--teal2);transform:translateY(-1px)}
+    .cta-card .cta-note{font-size:11.5px;color:rgba(255,255,255,.5)}
 
     /* Tags */
-    .article-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border)}
-    .tag{display:inline-block;background:var(--bgalt);color:var(--navy);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600}
-    .tag:hover{background:var(--border)}
-
-    /* Sidebar */
-    .sidebar{display:flex;flex-direction:column;gap:24px}
-    .sidebar-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(27,58,107,.06)}
-    .sidebar-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px}
-    .toc-list{list-style:none}
-    .toc-list li{margin-bottom:8px}
-    .toc-list a{display:block;padding:8px 12px;border-radius:6px;color:var(--gray);font-size:13px;transition:all .2s}
-    .toc-list a:hover{color:var(--navy);background:var(--bgalt)}
-
-    .cta-card{background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);color:#fff;border-radius:12px;padding:24px;text-align:center;box-shadow:0 8px 24px rgba(27,58,107,.15)}
-    .cta-emoji{font-size:40px;margin-bottom:12px}
-    .cta-card h3{font-size:17px;font-weight:800;margin-bottom:10px;color:#fff}
-    .cta-card p{font-size:14px;line-height:1.6;margin-bottom:16px;color:rgba(255,255,255,.85)}
-    .btn{display:inline-block;background:var(--teal);color:#fff;font-weight:700;padding:12px 24px;border-radius:8px;font-size:13px;transition:all .2s}
-    .btn:hover{background:var(--teal2);transform:translateY(-2px)}
-    .cta-note{font-size:12px;color:rgba(255,255,255,.7);margin-top:12px}
+    .article-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:44px;padding-top:28px;border-top:1px solid var(--border)}
+    .tag{display:inline-block;background:var(--bgalt);color:var(--gray);padding:5px 14px;border-radius:20px;font-size:12.5px;font-weight:500;border:1px solid var(--border)}
 
     /* Footer CTA */
-    .footer-cta{background:linear-gradient(135deg,var(--navy),#1d4a8a);color:#fff;padding:60px 24px;text-align:center}
-    .footer-cta h2{font-size:32px;font-weight:800;margin-bottom:16px}
-    .footer-cta p{font-size:16px;margin-bottom:24px;color:rgba(255,255,255,.85);max-width:600px;margin-left:auto;margin-right:auto}
-    .btn-cta{display:inline-block;background:var(--teal);color:#fff;font-weight:700;padding:14px 32px;border-radius:10px;font-size:14px;transition:all .2s}
-    .btn-cta:hover{background:var(--teal2);transform:translateY(-2px)}
-    .cta-sub{font-size:13px;color:rgba(255,255,255,.65);margin-top:16px}
+    .footer-cta{background:linear-gradient(135deg,var(--navy) 0%,#1d4a8a 100%);padding:60px 24px;text-align:center;margin-top:60px}
+    .footer-cta h2{font-size:clamp(24px,4vw,36px);font-weight:800;color:#fff;margin-bottom:12px}
+    .footer-cta p{color:rgba(255,255,255,.75);font-size:16px;margin-bottom:28px;max-width:540px;margin-left:auto;margin-right:auto}
+    .footer-cta .btn-cta{display:inline-block;background:var(--teal);color:#fff;font-weight:700;font-size:16px;padding:16px 36px;border-radius:12px;transition:all .2s}
+    .footer-cta .btn-cta:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,184,160,.4)}
+    .footer-cta .cta-sub{margin-top:14px;font-size:13px;color:rgba(255,255,255,.5)}
 
     /* Footer */
-    .footer{background:var(--navy);color:rgba(255,255,255,.8);padding:60px 24px 20px}
-    .footer-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:40px}
-    .footer-brand p{font-size:13.5px;line-height:1.8;margin:12px 0;color:rgba(255,255,255,.6)}
-    .f-logo{height:40px;margin-bottom:12px}
-    .f-quali{height:60px;margin-top:16px}
-    .footer-col{display:flex;flex-direction:column;gap:12px}
-    .f-col-t{font-weight:700;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
-    .footer-col a{font-size:13.5px;color:rgba(255,255,255,.65);transition:color .2s}
-    .footer-col a:hover{color:#fff}
-    .footer-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
-    .footer-bot-in{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.4)}
-    @media(max-width:768px){.footer-in{grid-template-columns:1fr;gap:24px}.footer-bot-in{flex-direction:column;gap:8px}}
+    footer{background:var(--navy2);padding:24px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.4)}
   </style>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="nav-c">
-    <a href="../index.html" class="nav-brand">ALUR<span>42</span></a>
+    <a href="../index.html" class="nav-brand"><img src="https://assets.hncgroupe.fr/alur42/logo-alur42.png" class="nav-logo" alt="Alur 42"></a>
     <div class="nav-links">
       <a href="../index.html" class="nav-link">Accueil</a>
       <a href="../index.html#formations" class="nav-link">Formations</a>
       <a href="../index.html#financement" class="nav-link">Financement</a>
       <a href="../faq.html" class="nav-link">FAQ</a>
-      <a href="../blog.html" class="nav-link">Blog</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
     </div>
     <a href="../formulaires.html" class="nav-cta">Vérifier mon éligibilité</a>
+    <button class="nav-burger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="nav-mob">
+    <a href="../index.html">Accueil</a>
+    <a href="../index.html#formations">Formations</a>
+    <a href="../index.html#financement">Financement</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../formulaires.html" class="nav-cta" style="display:block;text-align:center;margin-top:8px">Vérifier mon éligibilité</a>
   </div>
 </nav>
 
@@ -165,26 +173,34 @@
 <section class="article-hero">
   <div class="container">
     <div class="breadcrumb">
+      <a href="../index.html">Accueil</a>
+      <span>›</span>
       <a href="../blog.html">Blog</a>
-      <span>/</span>
+      <span>›</span>
       <span>Financement OPCO ATLAS</span>
     </div>
     <div class="article-badge">💡 Financement</div>
     <h1>Comment financer sa formation ALUR avec l'OPCO ATLAS ?</h1>
     <div class="article-meta">
-      <div class="meta-item">📅 Mars 2026</div>
+      <div class="meta-item">📅 Mis à jour : mars 2026</div>
+      <div class="meta-dot"></div>
       <div class="meta-item">⏱️ 7 min de lecture</div>
+      <div class="meta-dot"></div>
+      <div class="meta-item">👥 Agents salariés, directeurs d'agence</div>
     </div>
     <div class="article-intro">
-      Si vous êtes agent immobilier salarié, vous savez que la formation ALUR de 42 heures tous les 3 ans n'est pas optionnelle. Ce qui l'est en revanche, c'est de la payer de votre poche. L'OPCO ATLAS existe précisément pour ça : prendre en charge tout ou partie du coût de vos formations professionnelles.
+      <strong>En résumé :</strong> Si vous êtes agent immobilier salarié, vous savez que la formation ALUR de 42 heures tous les 3 ans n'est pas optionnelle. Ce qui l'est en revanche, c'est de la payer de votre poche. L'OPCO ATLAS existe précisément pour ça : prendre en charge tout ou partie du coût de vos formations professionnelles. Voici comment ça marche.
     </div>
   </div>
 </section>
 
-<!-- ARTICLE -->
+<!-- LAYOUT PRINCIPAL -->
 <div class="article-layout">
+
+  <!-- CONTENU -->
   <article class="article-body">
 
+    <!-- SECTION 1 -->
     <h2 id="what-is-atlas">Ce qu'est ATLAS et pourquoi ça vous concerne</h2>
     
     <p>ATLAS est l'opérateur de compétences des services financiers, de l'assurance et de l'immobilier. Depuis la réforme de 2018 qui a restructuré les anciens OPCA en OPCO, ATLAS collecte les contributions formation des entreprises du secteur et les redistribue pour financer les formations de leurs salariés.</p>
@@ -334,19 +350,26 @@
       <a href="../formulaires.html" class="btn">Démarrer ma formation →</a>
       <div class="cta-note">⚡ Dossier OPCO géré pour vous</div>
     </div>
+
+    <div class="sidebar-card" style="background:linear-gradient(135deg,#fffbeb,#fef9e7);border-color:#fde68a">
+      <div class="sidebar-title" style="color:#92400e">⚠️ Vérifiez votre échéance</div>
+      <p style="font-size:13.5px;color:#78350f;line-height:1.6;margin-bottom:14px">La date d'expiration de votre carte est indiquée sur le document remis par la CCI. Ne la laissez pas expirer sans vos 42h.</p>
+      <a href="../contact.html" style="display:block;background:#d97706;color:#fff;text-align:center;font-weight:700;font-size:13px;padding:11px 16px;border-radius:8px">Vérifier mon éligibilité →</a>
+    </div>
   </aside>
 
 </div>
 
 <!-- FOOTER CTA -->
 <section class="footer-cta">
-  <h2>Prêt à valider vos 42h de formation ?</h2>
-  <p>Nos formations ALUR sont certifiées Qualiopi et 100% finançables par votre OPCO ATLAS. Commencez aujourd'hui, sans avance de fonds.</p>
-  <a href="../formulaires.html" class="btn-cta">Démarrer ma formation gratuite →</a>
-  <div class="cta-sub">✓ Dossier OPCO géré pour vous · ✓ Attestation Qualiopi · ✓ 100% en ligne</div>
+  <div>
+    <h2>Prêt à valider vos 42h de formation ?</h2>
+    <p>Nos formations ALUR sont certifiées Qualiopi et 100% finançables par votre OPCO. Commencez aujourd'hui, sans avance de fonds.</p>
+    <a href="../formulaires.html" class="btn-cta">Démarrer ma formation gratuite →</a>
+    <div class="cta-sub">✓ Dossier OPCO géré pour vous · ✓ Attestation Qualiopi · ✓ 100% en ligne</div>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-in">
     <div class="footer-brand">
@@ -385,10 +408,25 @@
 </footer>
 
 <script>
+  // Navbar scroll shadow
   window.addEventListener('scroll', () => {
     document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
+
+  // TOC active highlight
+  const headings = document.querySelectorAll('h2[id]');
+  const links = document.querySelectorAll('.toc-list a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    headings.forEach(h => { if (window.scrollY >= h.offsetTop - 120) current = h.id; });
+    links.forEach(l => {
+      l.style.color = l.getAttribute('href') === '#'+current ? 'var(--navy)' : '';
+      l.style.background = l.getAttribute('href') === '#'+current ? 'var(--bgalt)' : '';
+      if (l.getAttribute('href') === '#'+current) l.querySelector('::before');
+    });
+  });
 </script>
 
+<script src="../main.js"></script>
 </body>
 </html>
