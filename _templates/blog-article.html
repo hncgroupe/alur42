@@ -4,25 +4,25 @@
   <link rel="icon" type="image/png" href="https://assets.hncgroupe.fr/alur42/FAVICON_ALUR_42.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loi ALUR : Tout ce que doit savoir un agent immobilier en 2025 | ALUR42.fr</title>
-  <meta name="description" content="La loi ALUR impose 42h de formation continue aux agents immobiliers tous les 3 ans. Découvrez l'historique, les obligations, les sanctions et comment vous former à 0€ via votre OPCO.">
+  <title>{{META_TITRE}} | ALUR42.fr</title>
+  <meta name="description" content="{{META_DESC}}">
   <meta name="robots" content="index, follow">
   <!-- Open Graph -->
-  <meta property="og:title" content="Loi ALUR : Formation obligatoire 42h pour agents immobiliers">
-  <meta property="og:description" content="Tout comprendre sur la formation continue obligatoire des agents immobiliers : historique, obligations, sanctions, financement OPCO.">
+  <meta property="og:title" content="{{META_TITRE}}">
+  <meta property="og:description" content="{{META_DESC}}">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://alur42.fr/blog-loi-alur-formation-obligatoire">
+  <meta property="og:url" content="https://alur42.fr/blog/{{SLUG}}">
   <!-- Schema.org Article -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Loi ALUR : Formation obligatoire 42h - Ce que chaque agent immobilier doit savoir",
-    "datePublished": "2025-02-28",
-    "dateModified": "2025-02-28",
+    "headline": "{{META_TITRE}}",
+    "datePublished": "{{DATE_ISO}}",
+    "dateModified": "{{DATE_ISO}}",
     "author": {"@type": "Organization", "name": "ALUR42.fr"},
     "publisher": {"@type": "Organization", "name": "ALUR42.fr"},
-    "description": "Guide complet sur la formation continue obligatoire imposée par la loi ALUR aux agents immobiliers."
+    "description": "{{META_DESC}}"
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -195,21 +195,21 @@
     <div class="breadcrumb">
       <a href="../index.html">Accueil</a>
       <span>›</span>
-      <a href="index.html#blog">Blog</a>
+      <a href="../blog.html">Blog</a>
       <span>›</span>
-      <span>Loi ALUR & formation obligatoire</span>
+      <span>{{BREADCRUMB_TITRE}}</span>
     </div>
-    <div class="article-badge">📚 Guide complet</div>
-    <h1>Loi ALUR : <em>formation obligatoire 42h</em> - Ce que chaque agent immobilier doit savoir</h1>
+    <div class="article-badge">{{EMOJI_BADGE}} {{LABEL_BADGE}}</div>
+    <h1>{{TITRE_H1}}</h1>
     <div class="article-meta">
-      <div class="meta-item">📅 Mis à jour : février 2025</div>
+      <div class="meta-item">📅 {{DATE_AFFICHAGE}}</div>
       <div class="meta-dot"></div>
-      <div class="meta-item">⏱️ 8 min de lecture</div>
+      <div class="meta-item">⏱️ {{DUREE_LECTURE}}</div>
       <div class="meta-dot"></div>
-      <div class="meta-item">👥 Agents immobiliers, négociateurs, directeurs d'agence</div>
+      <div class="meta-item">👥 {{AUDIENCE}}</div>
     </div>
     <div class="article-intro">
-      <strong>En résumé :</strong> La loi ALUR du 24 mars 2014 a imposé une formation continue obligatoire de 42 heures sur 3 ans pour tout professionnel de l'immobilier titulaire d'une carte professionnelle. Sans ces heures, votre carte ne peut pas être renouvelée et vous ne pouvez plus exercer. Bonne nouvelle : cette formation est intégralement finançable via votre OPCO, donc à <strong>0€ de reste à charge</strong>.
+      <strong>En résumé :</strong> {{INTRO_RESUME}}
     </div>
   </div>
 </section>
@@ -220,279 +220,44 @@
   <!-- CONTENU -->
   <article class="article-body">
 
-    <!-- STATS -->
+    <!-- STATS (optionnel - supprimer le bloc si inutile) -->
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="stat-num">42<span>h</span></div>
-        <div class="stat-label">de formation sur 3 ans</div>
+        <div class="stat-num">{{STAT1_NUM}}<span>{{STAT1_UNITE}}</span></div>
+        <div class="stat-label">{{STAT1_LABEL}}</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">600<span>K</span></div>
-        <div class="stat-label">professionnels concernés en France</div>
+        <div class="stat-num">{{STAT2_NUM}}<span>{{STAT2_UNITE}}</span></div>
+        <div class="stat-label">{{STAT2_LABEL}}</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0<span>€</span></div>
-        <div class="stat-label">reste à charge via OPCO</div>
+        <div class="stat-num">{{STAT3_NUM}}<span>{{STAT3_UNITE}}</span></div>
+        <div class="stat-label">{{STAT3_LABEL}}</div>
       </div>
     </div>
 
-    <!-- SECTION 1 -->
-    <h2 id="contexte">1. Le contexte : pourquoi la loi ALUR a-t-elle été créée ?</h2>
+    <!-- ══════════════════════════════════════
+         CONTENU DE L'ARTICLE ICI
+         Utiliser uniquement ces balises :
+         <h2 id="ancre">Titre section</h2>
+         <h3>Sous-titre</h3>
+         <p>Paragraphe</p>
+         <strong>Texte en gras</strong>
+         <div class="highlight-box">...</div>
+         <div class="highlight-box teal">...</div>
+         <div class="highlight-box gold">...</div>
+         <div class="highlight-box danger">...</div>
+         <div class="table-wrap"><table>...</table></div>
+         <div class="timeline">...</div>
+         <div class="stats-grid">...</div>
+    ══════════════════════════════════════ -->
 
-    <p>Avant 2014, le secteur de l'immobilier était l'un des rares secteurs réglementés sans obligation de formation continue. Un agent ayant obtenu sa carte professionnelle dans les années 1990 pouvait théoriquement exercer indéfiniment sans jamais actualiser ses connaissances, quelles que soient les évolutions législatives, fiscales ou déontologiques du métier.</p>
-
-    <p>Face à ce constat, et dans un contexte de multiplication des litiges entre professionnels et clients, le législateur a décidé d'encadrer plus strictement la profession. La <strong>loi n°2014-366 du 24 mars 2014 pour l'Accès au Logement et un Urbanisme Rénové</strong>, dite loi ALUR, portée par Cécile Duflot, a introduit une réforme profonde du cadre juridique applicable aux agents immobiliers.</p>
-
-    <div class="highlight-box">
-      <div class="box-title">💡 À retenir</div>
-      <p>La loi ALUR va bien au-delà de la formation : elle a également encadré la location meublée, créé la garantie universelle des loyers, renforcé les droits des locataires et modifié les règles de copropriété. La formation continue n'est qu'un des volets de cette réforme d'envergure.</p>
-    </div>
-
-    <p>Les modalités précises de la formation continue ont ensuite été définies par le <strong>décret n°2016-173 du 18 février 2016</strong>, entré en vigueur le 1er avril 2016. C'est ce décret qui fixe les 42 heures, les thématiques obligatoires et les conditions de validation.</p>
-
-    <!-- SECTION 2 -->
-    <h2 id="obligations">2. Qui est concerné et quelles sont les obligations exactes ?</h2>
-
-    <h3>Les professionnels visés</h3>
-    <p>La formation continue ALUR concerne tous les titulaires d'une carte professionnelle délivrée par la <strong>Chambre de Commerce et d'Industrie (CCI)</strong> dans le cadre de la loi Hoguet de 1970. Sont donc visés :</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Catégorie</th>
-            <th>Carte professionnelle</th>
-            <th>Obligatoire ?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Agent immobilier (transaction)</td>
-            <td>T – Transactions</td>
-            <td><span class="badge-ok">✓ Oui</span></td>
-          </tr>
-          <tr>
-            <td>Administrateur de biens (gestion locative)</td>
-            <td>G – Gestion</td>
-            <td><span class="badge-ok">✓ Oui</span></td>
-          </tr>
-          <tr>
-            <td>Syndic de copropriété</td>
-            <td>S – Syndic</td>
-            <td><span class="badge-ok">✓ Oui</span></td>
-          </tr>
-          <tr>
-            <td>Négociateur salarié sous couvert de carte</td>
-            <td>Attestation collaborateur</td>
-            <td><span class="badge-ok">✓ Oui</span></td>
-          </tr>
-          <tr>
-            <td>Agent commercial mandataire</td>
-            <td>Attestation collaborateur</td>
-            <td><span class="badge-ok">✓ Oui</span></td>
-          </tr>
-          <tr>
-            <td>Marchand de biens (sans carte)</td>
-            <td>Aucune</td>
-            <td><span class="badge-no">✗ Non</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Le volume horaire obligatoire : les 42 heures</h3>
-    <p>Les 42 heures se répartissent sur la période de validité de la carte professionnelle (3 ans) avec un plancher annuel minimum :</p>
-
-    <div class="highlight-box teal">
-      <div class="box-title">📋 Répartition des 42h</div>
-      <p><strong>Minimum 14h par an</strong> (ou 2h sur les domaines juridique, économique, commercial ou éthique + déontologie), pour un total de <strong>42h sur 3 ans</strong>. Au moins <strong>2h doivent porter sur la déontologie</strong> lors de chaque période triennale.</p>
-    </div>
-
-    <!-- SECTION 3 -->
-    <h2 id="historique">3. Historique et évolutions depuis 2016</h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="tl-dot">2014</div>
-        <div class="tl-content">
-          <div class="tl-year">24 mars 2014</div>
-          <div class="tl-title">Promulgation de la loi ALUR</div>
-          <div class="tl-text">La loi est publiée au Journal Officiel. Elle pose le principe de la formation continue obligatoire mais renvoie au décret d'application pour les modalités.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-dot">2016</div>
-        <div class="tl-content">
-          <div class="tl-year">18 février 2016</div>
-          <div class="tl-title">Décret d'application - entrée en vigueur</div>
-          <div class="tl-text">Le décret n°2016-173 précise les 42h, les thématiques obligatoires, les organismes habilités et les modalités de justification auprès de la CCI.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-dot teal">2019</div>
-        <div class="tl-content">
-          <div class="tl-year">Depuis 2019</div>
-          <div class="tl-title">Montée en puissance du e-learning</div>
-          <div class="tl-text">Les formations à distance (FOAD) sont pleinement reconnues. Les agents peuvent désormais valider leurs heures 100% en ligne, depuis n'importe où, à leur rythme.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-dot teal">2025</div>
-        <div class="tl-content">
-          <div class="tl-year">2025</div>
-          <div class="tl-title">Financement OPCO généralisé</div>
-          <div class="tl-text">Les OPCO (ATLAS pour les agents immobiliers salariés, FIFPL/AGEFICE pour les indépendants) prennent en charge intégralement les formations certifiées Qualiopi, rendant le reste à charge nul pour la quasi-totalité des professionnels.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECTION 4 -->
-    <h2 id="thematiques">4. Les thématiques de formation reconnues</h2>
-
-    <p>Le décret de 2016 définit précisément les domaines dans lesquels les heures de formation peuvent être validées. Une formation non conforme à ces thématiques ne sera pas reconnue par la CCI lors du renouvellement de carte.</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Domaine</th>
-            <th>Exemples de thèmes</th>
-            <th>Statut</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Domaines juridiques</strong></td>
-            <td>Droit des contrats, baux, copropriété, urbanisme, succession</td>
-            <td><span class="badge-ok">Éligible</span></td>
-          </tr>
-          <tr>
-            <td><strong>Domaines économiques</strong></td>
-            <td>Financement immobilier, fiscalité, analyse de marché</td>
-            <td><span class="badge-ok">Éligible</span></td>
-          </tr>
-          <tr>
-            <td><strong>Domaines commerciaux</strong></td>
-            <td>Techniques de vente, relation client, marketing digital</td>
-            <td><span class="badge-ok">Éligible</span></td>
-          </tr>
-          <tr>
-            <td><strong>Déontologie et éthique</strong></td>
-            <td>Code de déontologie FNAIM/CNAB, prévention conflits d'intérêts</td>
-            <td><span class="badge-warn">Obligatoire 2h min.</span></td>
-          </tr>
-          <tr>
-            <td><strong>Discrimination</strong></td>
-            <td>Prévention de la discrimination à la location et à la vente</td>
-            <td><span class="badge-ok">Éligible</span></td>
-          </tr>
-          <tr>
-            <td><strong>Développement durable</strong></td>
-            <td>DPE, rénovation énergétique, label BBC</td>
-            <td><span class="badge-ok">Éligible</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- SECTION 5 -->
-    <h2 id="sanctions">5. Quelles sanctions en cas de non-respect ?</h2>
-
-    <p>Le non-respect de l'obligation de formation continue entraîne des conséquences concrètes et immédiates sur votre capacité à exercer la profession.</p>
-
-    <div class="highlight-box danger">
-      <div class="box-title">⚠️ Attention - Conséquence directe</div>
-      <p>En cas d'absence de justification des 42h auprès de la CCI lors du renouvellement de votre carte professionnelle, <strong>la carte ne sera pas renouvelée</strong>. Vous ne pourrez plus légalement exercer votre activité d'agent immobilier, de gestionnaire ou de syndic jusqu'à régularisation.</p>
-    </div>
-
-    <p>Concrètement, voici ce qui se passe si vous n'avez pas vos 42h :</p>
-
-    <ul style="margin:16px 0 18px 20px;display:flex;flex-direction:column;gap:10px">
-      <li style="color:#2d3f56;font-size:15.5px;line-height:1.7"><strong>Non-renouvellement de la carte professionnelle</strong> : la CCI refuse la demande tant que les justificatifs de formation ne sont pas produits.</li>
-      <li style="color:#2d3f56;font-size:15.5px;line-height:1.7"><strong>Exercice illégal de la profession</strong> : continuer à exercer sans carte valide expose à des poursuites pénales au titre de la loi Hoguet.</li>
-      <li style="color:#2d3f56;font-size:15.5px;line-height:1.7"><strong>Impact sur les collaborateurs</strong> : si vous êtes titulaire de carte et que vos collaborateurs (négociateurs, agents commerciaux) travaillent sous votre couvert, l'invalidité de votre carte les empêche également d'exercer légalement.</li>
-      <li style="color:#2d3f56;font-size:15.5px;line-height:1.7"><strong>Risque de contentieux client</strong> : un mandat signé par un agent sans carte valide peut être contesté devant les tribunaux.</li>
-    </ul>
-
-    <!-- SECTION 6 -->
-    <h2 id="financement">6. Le financement OPCO : formation à 0€</h2>
-
-    <p>C'est la bonne nouvelle que beaucoup d'agents immobiliers ignorent encore : <strong>vos formations ALUR peuvent être intégralement financées</strong> par votre organisme paritaire collecteur agréé (OPCA/OPCO), sans avance de fonds.</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Votre situation</th>
-            <th>OPCO compétent</th>
-            <th>Prise en charge</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Salarié d'agence immobilière</td>
-            <td><strong>ATLAS</strong></td>
-            <td><span class="badge-ok">Jusqu'à 100%</span></td>
-          </tr>
-          <tr>
-            <td>Agent commercial indépendant (non salarié)</td>
-            <td><strong>AGEFICE / FIFPL</strong></td>
-            <td><span class="badge-ok">Jusqu'à 100%</span></td>
-          </tr>
-          <tr>
-            <td>Dirigeant TNS (gérant majoritaire SARL)</td>
-            <td><strong>AGEFICE</strong></td>
-            <td><span class="badge-ok">Jusqu'à 100%</span></td>
-          </tr>
-          <tr>
-            <td>Auto-entrepreneur</td>
-            <td><strong>FIFPL</strong></td>
-            <td><span class="badge-warn">Variable selon cotisations</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="highlight-box teal">
-      <div class="box-title">✅ Condition indispensable : certification Qualiopi</div>
-      <p>Pour être financée par un OPCO, la formation doit obligatoirement être dispensée par un organisme certifié <strong>Qualiopi</strong>. ALUR42.fr est certifié Qualiopi - vous pouvez donc bénéficier de la prise en charge complète de nos formations.</p>
-    </div>
-
-    <!-- SECTION 7 -->
-    <h2 id="justifier">7. Comment justifier ses heures auprès de la CCI ?</h2>
-
-    <p>Lors du renouvellement de votre carte professionnelle (tous les 3 ans), vous devez fournir à la CCI dont vous dépendez les justificatifs attestant que vous avez bien effectué vos 42h de formation.</p>
-
-    <p>Les documents acceptés sont :</p>
-    <ul style="margin:16px 0 18px 20px;display:flex;flex-direction:column;gap:8px">
-      <li style="color:#2d3f56;font-size:15.5px"><strong>Attestation de formation</strong> émise par l'organisme formateur (obligatoire)</li>
-      <li style="color:#2d3f56;font-size:15.5px"><strong>Attestation de présence</strong> pour les formations en présentiel</li>
-      <li style="color:#2d3f56;font-size:15.5px"><strong>Relevé de connexion et de complétion</strong> pour les formations en ligne (FOAD)</li>
-      <li style="color:#2d3f56;font-size:15.5px"><strong>Facture acquittée</strong> ou attestation de prise en charge OPCO</li>
-    </ul>
-
-    <div class="highlight-box">
-      <div class="box-title">📁 Conseil pratique</div>
-      <p>Conservez <strong>tous vos justificatifs pendant au moins 5 ans</strong>. En cas de contrôle ou de litige, vous devrez être en mesure de prouver chaque heure effectuée. Créez un dossier (physique ou numérique) dédié à votre formation continue dès aujourd'hui.</p>
-    </div>
-
-    <!-- CONCLUSION -->
-    <h2 id="conclusion">Conclusion</h2>
-
-    <p>La formation continue obligatoire issue de la loi ALUR n'est pas une contrainte administrative anodine : c'est une condition sine qua non pour exercer légalement votre métier d'agent immobilier. Avec 42 heures à valider sur 3 ans - soit à peine 14h par an - et un financement intégral disponible via votre OPCO, il n'y a aucune raison valable de repousser cette obligation.</p>
-
-    <p>ALUR42.fr vous propose des formations 100% en ligne, certifiées Qualiopi, avec une prise en charge complète par votre OPCO. <strong>Vous ne payez rien, vous apprenez à votre rythme, et vous sécurisez votre carte professionnelle.</strong></p>
+    {{CONTENU_ARTICLE}}
 
     <!-- TAGS -->
     <div class="article-tags">
-      <span class="tag">Loi ALUR</span>
-      <span class="tag">Formation obligatoire</span>
-      <span class="tag">42 heures</span>
-      <span class="tag">Carte professionnelle</span>
-      <span class="tag">OPCO</span>
-      <span class="tag">Agent immobilier</span>
-      <span class="tag">Qualiopi</span>
-      <span class="tag">CCI</span>
+      {{TAGS}}
+      <!-- Exemple : <span class="tag">Loi ALUR</span> -->
     </div>
 
   </article>
@@ -502,14 +267,8 @@
     <div class="sidebar-card">
       <div class="sidebar-title">📋 Sommaire</div>
       <ul class="toc-list">
-        <li><a href="#contexte">1. Pourquoi la loi ALUR ?</a></li>
-        <li><a href="#obligations">2. Qui est concerné ?</a></li>
-        <li><a href="#historique">3. Historique depuis 2016</a></li>
-        <li><a href="#thematiques">4. Thématiques de formation</a></li>
-        <li><a href="#sanctions">5. Sanctions en cas de manquement</a></li>
-        <li><a href="#financement">6. Financement OPCO</a></li>
-        <li><a href="#justifier">7. Justifier ses heures à la CCI</a></li>
-        <li><a href="#conclusion">Conclusion</a></li>
+        {{SOMMAIRE}}
+        <!-- Exemple : <li><a href="#ancre">1. Titre section</a></li> -->
       </ul>
     </div>
 
@@ -578,10 +337,10 @@
 </footer>
 
 <script>
-  // Navbar scroll shadow
   window.addEventListener('scroll', () => {
     document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
+  function toggleNav(){document.getElementById('nav-mob').classList.toggle('open')}
 
   // TOC active highlight
   const headings = document.querySelectorAll('h2[id]');
@@ -592,7 +351,6 @@
     links.forEach(l => {
       l.style.color = l.getAttribute('href') === '#'+current ? 'var(--navy)' : '';
       l.style.background = l.getAttribute('href') === '#'+current ? 'var(--bgalt)' : '';
-      if (l.getAttribute('href') === '#'+current) l.querySelector('::before');
     });
   });
 </script>

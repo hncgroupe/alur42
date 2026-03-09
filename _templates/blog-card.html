@@ -1,0 +1,32 @@
+<!-- ══════════════════════════════════════════════════════════
+     BLOG CARD TEMPLATE — ALUR42
+     Copier ce bloc entier dans blog.html
+     JUSTE AVANT la première .blog-card existante
+     Remplacer uniquement les variables {{...}}
+     NE JAMAIS modifier les classes CSS
+══════════════════════════════════════════════════════════ -->
+
+<a href="blog/{{SLUG}}.html" class="blog-card" style="text-decoration:none;color:inherit">
+  <div class="card-img">{{EMOJI}}</div>
+  <div class="card-body">
+    <div class="card-cat">{{EMOJI_CAT}} {{CATEGORIE}}</div>
+    <div class="card-title">{{TITRE}}</div>
+    <div class="card-excerpt">{{EXTRAIT}}</div>
+    <div class="card-meta">
+      <span class="card-date">📅 {{DATE}} · ⏱️ {{DUREE_LECTURE}}</span>
+      <span class="card-read">Lire →</span>
+    </div>
+  </div>
+</a>
+
+<!-- ══════════════════════════════════════════════════════════
+     VARIABLES À REMPLACER :
+     {{SLUG}}           → nom du fichier sans .html  ex: blog-financement-opco
+     {{EMOJI}}          → emoji principal de la card  ex: 💰
+     {{EMOJI_CAT}}      → emoji de la catégorie       ex: 💡
+     {{CATEGORIE}}      → texte catégorie             ex: Financement
+     {{TITRE}}          → titre complet de l'article
+     {{EXTRAIT}}        → 1-2 phrases de résumé (max 160 car.)
+     {{DATE}}           → ex: Mars 2025
+     {{DUREE_LECTURE}}  → ex: 6 min
+══════════════════════════════════════════════════════════ -->
