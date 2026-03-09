@@ -373,7 +373,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 @media(max-width:500px){.footer-in{grid-template-columns:1fr}}
 .f-logo{height:42px;width:auto;filter:brightness(0) invert(1);margin-bottom:13px}
 .footer-brand p{font-size:13px;color:rgba(255,255,255,.42);line-height:1.8;max-width:280px;margin-bottom:16px}
-.f-quali{height:32px;width:auto;filter:none;opacity:1}
+
 .f-col-t{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.32);margin-bottom:15px}
 .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.57);margin-bottom:7px;transition:color .18s}
 .footer-col a:hover{color:var(--teal)}
@@ -451,7 +451,7 @@ h1,h2,h3,h4{letter-spacing:-.3px}
 .h-quali img{height:38px;width:auto;filter:none!important}
 
 /* ═══ FOOTER logo qualiopi - double taille fond blanc ═══ */
-.f-quali{height:87px;width:auto;background:#fff;border-radius:10px;padding:8px 15px;display:block}
+
 
 /* ═══ FOOTER logo alur42 - inversé blanc ═══ */
 .f-logo{filter:brightness(0) invert(1)!important}
@@ -714,4 +714,20 @@ h1,h2,h3,h4{letter-spacing:-.3px}
     width:100%!important;
     height:auto!important;
   }
+}
+
+/* ── QUALIOPI : proportions toujours préservées ── */
+.f-quali{
+  display:block;
+  width:auto;
+  height:auto;
+  max-height:64px;
+  max-width:180px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:10px;
+  padding:8px 14px;
+}
+@media(max-width:600px){
+  .f-quali{max-height:48px;max-width:140px;padding:6px 10px}
 }
